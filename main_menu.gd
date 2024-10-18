@@ -1,23 +1,23 @@
 extends Control  # Le script est attaché au root node de la scène PauseMenu
 
 # On récupère les boutons
-@onready var resume_button = $ResumeButton
-@onready var home_button = $HomeButton
+@onready var piece_race_button = $PiecesRaceButton
+@onready var race_button = $RaceButton
 @onready var settings_button = $SettingsButton
+@onready var quit_button = $QuitButton
 
 func _ready() -> void:
-	# Cache le menu au démarrage
-	self.visible = false
 
 	# Continue à fonctionner même en pause
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 
 	# Applique le mode de process aux boutons pour qu'ils fonctionnent en pause
-	resume_button.process_mode = Node.PROCESS_MODE_ALWAYS
-	home_button.process_mode = Node.PROCESS_MODE_ALWAYS
+	piece_race_button.process_mode = Node.PROCESS_MODE_ALWAYS
+	race_button.process_mode = Node.PROCESS_MODE_ALWAYS
 	settings_button.process_mode = Node.PROCESS_MODE_ALWAYS
+	quit_button.process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _process(_delta):
+func _process(delta):
 	# Vérifie si le joueur appuie sur la touche pause (Échap)
 	if Input.is_action_just_pressed("ui_pause"):
 		toggle_pause()
@@ -41,17 +41,18 @@ func resume_game():
 	# Reprend le jeu
 	get_tree().paused = false
 
-# Bouton "Reprendre"
-func _on_resume_button_pressed() -> void:
-	resume_game()
-
 # Bouton "Quitter"
 func _on_quit_button_pressed() -> void:
-	# Changement de scène, reset des variables pour que si on revient dessus c'est ok
-	self.visible = false
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().quit()  # Quitte le jeu
 
-# Bouton "Paramètres"
-func _on_SettingsButton_pressed():
-	print("Ouvrir le menu des paramètres")  # Action à définir pour les paramètres
+
+func _on_pieces_race_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://piece_race.tscn")
+
+
+func _on_race_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_settings_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://settings_menu.tscn")

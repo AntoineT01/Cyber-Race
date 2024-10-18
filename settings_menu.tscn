@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://b2bgdul6ifnuq"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 406.0
+offset_top = 253.0
+offset_right = 806.0
+offset_bottom = 283.0
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="FullscreenLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 400.0
+offset_top = 318.0
+offset_right = 800.0
+offset_bottom = 348.0
+text = "Plein écran"
+horizontal_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="FullscreenLabel"]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 62.0
+offset_right = 395.0
+offset_bottom = 102.0
+allow_search = false
+item_count = 1
+item_0/text = "1920x1080"
+
+[node name="ResolutionLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 400.0
+offset_top = 385.0
+offset_right = 800.0
+offset_bottom = 415.0
+text = "Résolution"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 400.0
+offset_top = 446.0
+offset_right = 800.0
+offset_bottom = 486.0
+text = "Retour au Menu Principal"
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 714.0
+offset_top = 319.0
+offset_right = 738.0
+offset_bottom = 343.0
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 286.0
+offset_right = 800.0
+offset_bottom = 316.0
+value = 50.0

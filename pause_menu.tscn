@@ -28,7 +28,7 @@ offset_right = 672.0
 offset_bottom = 260.0
 text = "Reprendre"
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="HomeButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 502.0
 offset_top = 287.0
@@ -45,5 +45,5 @@ offset_bottom = 480.0
 text = "Paramètres"
 
 [connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HomeButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
