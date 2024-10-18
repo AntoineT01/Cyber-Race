@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnxxx"]
+[gd_scene load_steps=8 format=3 uid="uid://bnxxx"]
 
 [ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://voiture.tscn" id="1_abcde"]
 [ext_resource type="Script" path="res://camera_follow.gd" id="2_fghij"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://piece.tscn" id="3_klmno"]
 [ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://cybertruck.tscn" id="4_buaph"]
+[ext_resource type="PackedScene" path="res://pause_menu.tscn" id="5_puc5w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(100, 1, 100)
@@ -103,3 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -15)
 
 [node name="Piece5" parent="World/Pieces" instance=ExtResource("3_klmno")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, 15)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_puc5w")]

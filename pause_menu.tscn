@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://3f713efdenwi"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_d78tf"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d78tf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.427451)
+
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 180.0
+offset_right = 672.0
+offset_bottom = 260.0
+text = "Reprendre"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 287.0
+offset_right = 672.0
+offset_bottom = 367.0
+text = "Quitter"
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 400.0
+offset_right = 672.0
+offset_bottom = 480.0
+text = "Paramètres"
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
