@@ -82,6 +82,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2")
 
 [node name="FrontLeftWheel" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.4, 1.5)
+use_as_traction = true
 use_as_steering = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FrontLeftWheel"]
@@ -91,6 +92,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3")
 
 [node name="FrontRightWheel" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.4, 1.5)
+use_as_traction = true
 use_as_steering = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FrontRightWheel"]

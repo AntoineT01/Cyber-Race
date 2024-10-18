@@ -1,15 +1,28 @@
-[gd_scene load_steps=15 format=3 uid="uid://bnxxx"]
+[gd_scene load_steps=19 format=3 uid="uid://bnxxx"]
 
 [ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://voiture.tscn" id="1_abcde"]
 [ext_resource type="Script" path="res://camera_follow.gd" id="2_fghij"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://piece.tscn" id="3_klmno"]
 [ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://cybertruck.tscn" id="4_buaph"]
+[ext_resource type="PackedScene" uid="uid://dxwjn6fmudjrc" path="res://terrain.tscn" id="5_uf4n7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
-size = Vector3(100, 1, 100)
+size = Vector3(100, 1, 1500)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d55ql"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2qs5e"]
+noise = SubResource("FastNoiseLite_d55ql")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4mem"]
+albedo_color = Color(0.1739, 0.37, 0.177168, 1)
+albedo_texture = SubResource("NoiseTexture2D_2qs5e")
+normal_scale = -1.7
+uv1_scale = Vector3(100, 100, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1"]
-size = Vector3(100, 1, 100)
+material = SubResource("StandardMaterial3D_j4mem")
+size = Vector3(100, 1, 1500)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2"]
 size = Vector3(20, 1, 40)
@@ -105,9 +118,10 @@ shape = SubResource("BoxShape3D_3")
 mesh = SubResource("BoxMesh_3")
 
 [node name="Ramp1" type="StaticBody3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1.79008, -12.3338)
+transform = Transform3D(0.0223209, 0, 0.999751, 0, 1, 0, -0.999751, 0, 0.0223209, -3.11959, 1.79008, 10.4486)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ramp1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47248, 0)
 mesh = SubResource("PrismMesh_1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ramp1"]
@@ -137,8 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 40)
 collision_layer = 1
 collision_mask = 1
 mass = 40.0
-center_of_mass_mode = 0
-center_of_mass = Vector3(0, 0, 0)
+center_of_mass_mode = -1
 steering_control = "steering_1"
 throttle_control = "throttle_1"
 brake_control = "brake_1"
@@ -148,7 +161,7 @@ reverse_control = "reverse_1"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 40)
 collision_layer = 1
 collision_mask = 1
-mass = 30.0
+mass = 40.0
 center_of_mass_mode = -1
 steering_control = "steering_2"
 throttle_control = "throttle_2"
@@ -175,3 +188,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696578, 30)
 
 [node name="Piece5" parent="World/Pieces" instance=ExtResource("3_klmno")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="terrain" parent="." instance=ExtResource("5_uf4n7")]
