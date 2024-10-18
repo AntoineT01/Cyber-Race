@@ -131,6 +131,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 2.9)
 mesh = SubResource("BoxMesh_3")
 surface_material_override/0 = SubResource("StandardMaterial3D_4")
 
+[node name="LeftHeadlightLight" type="SpotLight3D" parent="Headlights/Headlight"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+light_color = Color(1, 0.945098, 0.909804, 1)
+light_energy = 5.0
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0
+spot_range = 30.0
+spot_angle = 30.0
+spot_angle_attenuation = 0.5
+
+[node name="RightHeadlightLight" type="SpotLight3D" parent="Headlights/Headlight"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+light_color = Color(1, 0.945098, 0.909804, 1)
+light_energy = 5.0
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0
+spot_range = 30.0
+spot_angle = 30.0
+spot_angle_attenuation = 0.5
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83001, 0.572328)
 mesh = SubResource("BoxMesh_reewa")
