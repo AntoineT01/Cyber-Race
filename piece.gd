@@ -4,7 +4,7 @@ signal piece_collected(by_player)
 
 @export var rotation_speed: float = 2.0
 @export var float_speed: float = 2.0  # Vitesse du mouvement de flottement
-@export var float_amplitude: float = 0.1  # Amplitude du mouvement de flottement
+@export var float_amplitude: float = 0.3  # Amplitude du mouvement de flottement
 
 var initial_y: float
 var time: float = 0.0
