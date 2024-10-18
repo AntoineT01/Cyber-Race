@@ -7,6 +7,7 @@ extends VehicleBody3D
 @export var steering_control = "steering"
 @export var throttle_control = "throttle"
 @export var brake_control = "brake"
+@export var reverse_control = "reverse"  # Nouveau contrôle pour la marche arrière
 
 @export var collision_push_force = 50.0
 
@@ -26,19 +27,22 @@ func _ready():
 	right_taillight.set_surface_override_material(0, brake_light_material)
 	set_brake_lights(false)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var throttle = Input.get_action_strength(throttle_control)
+	var reverse = Input.get_action_strength(reverse_control)  # Nouvelle entrée pour la marche arrière
 	var brake_strength = Input.get_action_strength(brake_control)
 	var steer_left = Input.get_action_strength("left_" + steering_control)
 	var steer_right = Input.get_action_strength("right_" + steering_control)
 
-	engine_force = throttle * max_engine_force
+	# Calcul de la force du moteur en tenant compte de la marche avant et arrière
+	engine_force = (throttle - reverse) * max_engine_force
 	brake = brake_strength * max_brake_force
 	steering = (steer_left - steer_right) * max_steer_angle
 
-	set_brake_lights(brake_strength > 0)
+	# Activation des feux de freinage pour le freinage et la marche arrière
+	set_brake_lights(brake_strength > 0 or reverse > 0)
 
-func _integrate_forces(state):
+func _integrate_forces(_state):
 	if last_collision_force != Vector3.ZERO:
 		apply_central_impulse(last_collision_force)
 		last_collision_force = Vector3.ZERO

@@ -142,6 +142,7 @@ center_of_mass = Vector3(0, 0, 0)
 steering_control = "steering_1"
 throttle_control = "throttle_1"
 brake_control = "brake_1"
+reverse_control = "reverse_1"
 
 [node name="Voiture2" parent="World" instance=ExtResource("4_buaph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 40)
@@ -152,6 +153,7 @@ center_of_mass_mode = -1
 steering_control = "steering_2"
 throttle_control = "throttle_2"
 brake_control = "brake_2"
+reverse_control = "reverse_2"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
 transform = Transform3D(0.753187, -0.637514, 0.162129, -0.25742, -0.0588394, 0.964507, -0.605347, -0.768189, -0.208426, -18.2136, 17.3425, -18.0214)
