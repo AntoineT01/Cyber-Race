@@ -17,7 +17,7 @@ func _ready() -> void:
 	settings_button.process_mode = Node.PROCESS_MODE_ALWAYS
 	quit_button.process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _process(delta):
+func _process(_delta):
 	# Vérifie si le joueur appuie sur la touche pause (Échap)
 	if Input.is_action_just_pressed("ui_pause"):
 		toggle_pause()
