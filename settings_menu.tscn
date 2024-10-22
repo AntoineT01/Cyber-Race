@@ -1,0 +1,155 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2bgdul6ifnuq"]
+
+[ext_resource type="Script" path="res://settings_menu.gd" id="1_w4bs8"]
+[ext_resource type="Script" path="res://key_config_dialog.gd" id="2_0n3xu"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w4bs8")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="VolumeLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="FullscreenLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Plein écran"
+horizontal_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FullscreenCheckbox" type="CheckBox" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+layout_mode = 2
+
+[node name="Player1" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Joueur 1"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer_Player1" type="GridContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+
+[node name="Brake1" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer_Player1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "Q
+"
+
+[node name="Throttle1" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer_Player1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "W
+"
+
+[node name="EmptyKey2" type="Control" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer_Player1"]
+layout_mode = 2
+
+[node name="LeftSteering1" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer_Player1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "A
+"
+
+[node name="Reverse1" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer_Player1"]
+layout_mode = 2
+text = "S"
+
+[node name="RightSteering1" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer_Player1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "D"
+
+[node name="Player2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Joueur 2"
+horizontal_alignment = 1
+
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer_Player2" type="GridContainer" parent="CenterContainer/VBoxContainer/CenterContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 3
+
+[node name="Brake2" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer_Player2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "0"
+
+[node name="Throttle2" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer_Player2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "↑"
+
+[node name="EmptyKey2" type="Control" parent="CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer_Player2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="LeftSteering2" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer_Player2"]
+layout_mode = 2
+text = "←"
+
+[node name="Reverse2" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer_Player2"]
+layout_mode = 2
+text = "↓"
+
+[node name="RightSteering2" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer_Player2"]
+layout_mode = 2
+text = "→"
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Retour au Menu Principal"
+
+[node name="KeyConfigDialog" type="PopupPanel" parent="."]
+handle_input_locally = false
+title = "Configuration d'une touche"
+initial_position = 1
+size = Vector2i(342, 200)
+visible = true
+script = ExtResource("2_0n3xu")
+
+[node name="Label" type="Label" parent="KeyConfigDialog"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 338.0
+offset_bottom = 196.0
