@@ -85,7 +85,7 @@ func _on_fullscreen_checkbox_toggled(button_pressed):
 	print("Fullscreen toggled: ", button_pressed)
 	SettingsManager.settings["fullscreen"] = button_pressed
 	DisplayServer.window_set_mode(
-		DisplayServer.WINDOW_MODE_FULLSCREEN if button_pressed else DisplayServer.WINDOW_MODE_WINDOWED
+		DisplayServer.WINDOW_MODE_FULLSCREEN if button_pressed else DisplayServer.WINDOW_MODE_MAXIMIZED
 	)
 
 # Lorsque le bouton retour est pressé

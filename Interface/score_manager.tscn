@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://gvkfk88mkw1x"]
+
+[ext_resource type="PackedScene" uid="uid://b8fie7g6uyyc8" path="res://Interface/score_display.tscn" id="1_neyjc"]
+
+[node name="ScoresManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+offset = Vector2(20, 18)
+transform = Transform2D(1, 0, 0, 1, 20, 18)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+layout_direction = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer_Player1" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+alignment = 1
+
+[node name="ScoreDisplay" parent="CanvasLayer/HBoxContainer/VBoxContainer_Player1" instance=ExtResource("1_neyjc")]
+layout_mode = 2
+player_name = "Player1"
+
+[node name="VBoxContainer_Player2" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+alignment = 1
+
+[node name="ScoreDisplay2" parent="CanvasLayer/HBoxContainer/VBoxContainer_Player2" instance=ExtResource("1_neyjc")]
+layout_mode = 2
+player_name = "Player2"
+player_id = 2
