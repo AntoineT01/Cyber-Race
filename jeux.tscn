@@ -1,10 +1,10 @@
 [gd_scene load_steps=19 format=3 uid="uid://bnxxx"]
 
-[ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://voiture.tscn" id="1_abcde"]
+[ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://voiture/voiture.tscn" id="1_abcde"]
 [ext_resource type="Script" path="res://camera_follow.gd" id="2_fghij"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://piece.tscn" id="3_klmno"]
-[ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://cybertruck.tscn" id="4_buaph"]
-[ext_resource type="PackedScene" uid="uid://dxwjn6fmudjrc" path="res://terrain.tscn" id="5_uf4n7"]
+[ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://voiture/cybertruck.tscn" id="4_buaph"]
+[ext_resource type="PackedScene" path="res://terrain.tscn" id="5_uf4n7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(100, 1, 1500)
@@ -188,5 +188,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696578, 30)
 
 [node name="Piece5" parent="World/Pieces" instance=ExtResource("3_klmno")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="RoadBlock" parent="World" instance=ExtResource("5_uf4n7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5474, 0, 0)
+
+[node name="RoadBlock" parent="World/RoadBlock" instance=ExtResource("5_uf4n7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 20.2454)
+
+[node name="RoadBlock" parent="World/RoadBlock/RoadBlock" instance=ExtResource("5_uf4n7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
+
+[node name="RoadBlock" parent="World/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_uf4n7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
+
+[node name="RoadBlock" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_uf4n7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
+
+[node name="RoadBlock" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_uf4n7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
 
 [node name="terrain" parent="." instance=ExtResource("5_uf4n7")]
