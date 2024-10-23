@@ -1,10 +1,10 @@
 [gd_scene load_steps=20 format=3 uid="uid://byb3r7xxuprh4"]
 
-[ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://voiture/voiture.tscn" id="1_abcde"]
-[ext_resource type="Script" path="res://camera_follow.gd" id="2_fghij"]
-[ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://piece.tscn" id="3_klmno"]
-[ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://voiture/cybertruck.tscn" id="4_buaph"]
-[ext_resource type="PackedScene" uid="uid://ucnm523qpc7x" path="res://terrain.tscn" id="5_uf4n7"]
+[ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://assets/voiture/voiture.tscn" id="1_abcde"]
+[ext_resource type="Script" path="res://scripts/camera_follow.gd" id="2_fghij"]
+[ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://assets/piece/piece.tscn" id="3_klmno"]
+[ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://assets/voiture/cybertruck.tscn" id="4_buaph"]
+[ext_resource type="PackedScene" uid="uid://cwjp6lm65mu5d" path="res://terrain.tscn" id="5_uf4n7"]
 [ext_resource type="PackedScene" uid="uid://3f713efdenwi" path="res://Interface/pause_menu.tscn" id="6_wx2t4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
@@ -66,7 +66,7 @@ stretch = true
 
 [node name="SubViewport1" type="SubViewport" parent="SplitScreen/ViewportContainer1"]
 handle_input_locally = false
-size = Vector2i(574, 648)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Camera3D1" type="Camera3D" parent="SplitScreen/ViewportContainer1/SubViewport1"]
@@ -81,7 +81,7 @@ stretch = true
 
 [node name="SubViewport2" type="SubViewport" parent="SplitScreen/ViewportContainer2"]
 handle_input_locally = false
-size = Vector2i(574, 648)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Camera3D2" type="Camera3D" parent="SplitScreen/ViewportContainer2/SubViewport2"]
@@ -194,7 +194,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5474, 0, 0)
 
 [node name="RoadBlock" parent="World/RoadBlock" instance=ExtResource("5_uf4n7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 20.2454)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.0516, 0, 20.2454)
 
 [node name="RoadBlock" parent="World/RoadBlock/RoadBlock" instance=ExtResource("5_uf4n7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
