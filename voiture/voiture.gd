@@ -11,6 +11,12 @@ extends VehicleBody3D
 
 @export var collision_push_force = 50.0
 
+@export var respawn_position: Vector3 = Vector3(0, 5, 0)  # Position de respawn par défaut
+@export var respawn_rotation: Vector3 = Vector3.ZERO  # Rotation de respawn par défaut (angles d'Euler en radians)
+@export var fall_threshold: float = -10.0  # Seuil de chute en Y
+
+@export var respawn_if_upside_down_time: float = 5.0  # Temps en secondes avant respawn si à l'envers
+
 @onready var left_taillight = $Taillights/LeftTaillight
 @onready var right_taillight = $Taillights/RightTaillight
 @onready var left_brake_light = $LeftBrakeLight
@@ -19,6 +25,9 @@ extends VehicleBody3D
 var last_collision_force = Vector3.ZERO
 var score = 0
 var brake_light_material: StandardMaterial3D
+
+# Variables pour gérer le respawn lorsqu'à l'envers
+var upside_down_timer: float = 0.0
 
 func _ready():
 	add_to_group("players")
@@ -41,6 +50,18 @@ func _physics_process(_delta):
 
 	# Activation des feux de freinage pour le freinage et la marche arrière
 	set_brake_lights(brake_strength > 0 or reverse > 0)
+
+	# Vérifier si la voiture est tombée
+	if global_transform.origin.y < fall_threshold:
+		respawn()
+
+	# Vérifier si la voiture est à l'envers
+	if is_upside_down():
+		upside_down_timer += _delta
+		if upside_down_timer >= respawn_if_upside_down_time:
+			respawn()
+	else:
+		upside_down_timer = 0.0
 
 func _integrate_forces(_state):
 	if last_collision_force != Vector3.ZERO:
@@ -66,3 +87,28 @@ func set_brake_lights(on: bool):
 
 	left_brake_light.visible = on
 	right_brake_light.visible = on
+
+func respawn():
+	# Réinitialiser la position
+	global_transform.origin = respawn_position
+
+	# Réinitialiser la rotation en utilisant Quat.from_euler
+	var new_quat = Quaternion.from_euler(respawn_rotation)
+	global_transform.basis = Basis(new_quat)
+
+	# Réinitialiser la vélocité et les forces
+	linear_velocity = Vector3.ZERO
+	angular_velocity = Vector3.ZERO
+
+	# Réinitialiser le timer de l'envers
+	upside_down_timer = 0.0
+
+	# Optionnel : Afficher un message ou des effets de respawn
+	print(name + " a été respawné!")
+
+# Fonction pour vérifier si la voiture est à l'envers
+func is_upside_down() -> bool:
+	# Le vecteur up local de la voiture
+	var up_vector = global_transform.basis.y
+	# Seuil pour considérer la voiture comme à l'envers (par exemple, y < 0)
+	return up_vector.y < 0.0

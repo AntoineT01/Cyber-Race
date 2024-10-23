@@ -148,7 +148,7 @@ shape = SubResource("BoxShape3D_4")
 mesh = SubResource("BoxMesh_4")
 
 [node name="Voiture1" parent="World" instance=ExtResource("1_abcde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 40)
+transform = Transform3D(-0.999764, -0.0217103, 0, 0.0217103, -0.999764, 0, 0, 0, 1, -5, 2.42832, 40)
 collision_layer = 1
 collision_mask = 1
 mass = 40.0
@@ -157,6 +157,7 @@ steering_control = "steering_1"
 throttle_control = "throttle_1"
 brake_control = "brake_1"
 reverse_control = "reverse_1"
+respawn_position = Vector3(-5, 1, 40)
 
 [node name="Voiture2" parent="World" instance=ExtResource("4_buaph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 40)
@@ -168,6 +169,8 @@ steering_control = "steering_2"
 throttle_control = "throttle_2"
 brake_control = "brake_2"
 reverse_control = "reverse_2"
+respawn_position = Vector3(5, 1, 40)
+fall_threshold = -5.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
 transform = Transform3D(0.753187, -0.637514, 0.162129, -0.25742, -0.0588394, 0.964507, -0.605347, -0.768189, -0.208426, -18.2136, 17.3425, -18.0214)
