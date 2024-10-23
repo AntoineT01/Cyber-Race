@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk35wdarqd7ya"]
+
+[ext_resource type="Script" path="res://scripts/progress_bars.gd" id="1_3p7hq"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+offset = Vector2(0, 40)
+transform = Transform2D(1, 0, 0, 1, 0, 40)
+script = ExtResource("1_3p7hq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_direction = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer_Player1" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="RespawnProgressBarPlayer1" type="ProgressBar" parent="HBoxContainer/VBoxContainer_Player1"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+max_value = 5.0
+step = 1.0
+show_percentage = false
+
+[node name="VBoxContainer_Player2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="RespawnProgressBarPlayer2" type="ProgressBar" parent="HBoxContainer/VBoxContainer_Player2"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+max_value = 5.0
+step = 1.0
+rounded = true
+fill_mode = 1
+show_percentage = false

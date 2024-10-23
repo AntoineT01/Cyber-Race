@@ -4,8 +4,7 @@ extends Node
 var settings: Dictionary = {
 	"volume": 50,
 	"fullscreen": false,
-	"resolution": "1920x1080"
-	# Ajoutez d'autres paramètres par défaut si nécessaire
+#	"resolution": "1152x648"
 }
 
 var action_mapping = [
@@ -44,6 +43,12 @@ func load_settings():
 	else:
 		print("Fichier de paramètres non trouvé. Utilisation des paramètres par défaut.")
 
+	# Définir la résolution par défaut si non spécifiée
+	if not settings.has("resolution"):
+		var window_size = ProjectSettings.get_setting("display/window/size")
+		settings["resolution"] = str(int(window_size.x)) + "x" + str(int(window_size.y))
+		print("Résolution par défaut définie: ", settings["resolution"])
+
 func save_settings():
 	var data = JSON.stringify(settings)
 	var file = FileAccess.open("user://settings.json", FileAccess.WRITE)
@@ -58,8 +63,6 @@ func save_settings():
 	save_key_settings()
 
 func apply_settings():
-	# Appliquer les paramètres chargés au démarrage
-
 	# Appliquer le volume
 	AudioServer.set_bus_volume_db(
 		AudioServer.get_bus_index("Master"),
@@ -68,12 +71,21 @@ func apply_settings():
 
 	# Appliquer le mode plein écran
 	DisplayServer.window_set_mode(
-		DisplayServer.WINDOW_MODE_FULLSCREEN if settings["fullscreen"] else DisplayServer.WINDOW_MODE_WINDOWED
+		DisplayServer.WINDOW_MODE_FULLSCREEN if settings["fullscreen"] else DisplayServer.WINDOW_MODE_MAXIMIZED
 	)
 
-	# Appliquer la résolution
-	var resolution_values = settings["resolution"].split("x")
-	DisplayServer.window_set_size(Vector2(int(resolution_values[0]), int(resolution_values[1])))
+	# Appliquer la résolution seulement si en mode fenêtré
+	if not settings["fullscreen"]:
+		var resolution_values = settings["resolution"].split("x")
+		if resolution_values.size() == 2:
+			var width: int  = int(resolution_values[0])
+			var height: int = int(resolution_values[1])
+			DisplayServer.window_set_size(Vector2(width, height))
+			print("Résolution fenêtrée définie sur: ", width, "x", height)
+		else:
+			print("Format de résolution invalide : ", settings["resolution"])
+	else:
+		print("En mode plein écran, la résolution est gérée automatiquement.")
 
 func save_key_settings():
 	var config = ConfigFile.new()
@@ -89,8 +101,6 @@ func save_key_settings():
 	config.save("user://key_settings.cfg")
 	print("Configuration des touches sauvegardée avec succès.")
 
-
-# Charger la configuration des touches depuis le fichier uniquement si elles ont été modifiées
 func load_key_settings():
 	var config = ConfigFile.new()
 	var err = config.load("user://key_settings.cfg")

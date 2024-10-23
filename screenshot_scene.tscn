@@ -1,0 +1,215 @@
+[gd_scene load_steps=22 format=3 uid="uid://dh12fymi6mg3t"]
+
+[ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://voiture/cybertruck.tscn" id="3_jilem"]
+[ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://assets/piece/piece.tscn" id="4_h3ewm"]
+[ext_resource type="PackedScene" uid="uid://112k2lseqsbv" path="res://assets/tree1.glb" id="5_dbgkw"]
+[ext_resource type="PackedScene" uid="uid://dxwjn6fmudjrc" path="res://map/route droite.tscn" id="5_tm70g"]
+[ext_resource type="PackedScene" uid="uid://c8tp7bv5t4y7i" path="res://Interface/progress_bars.tscn" id="6_urbtb"]
+[ext_resource type="PackedScene" uid="uid://3f713efdenwi" path="res://Interface/pause_menu.tscn" id="7_0auik"]
+[ext_resource type="Script" path="res://addons/goutte.camera.trackball/trackball_camera.gd" id="8_cansv"]
+[ext_resource type="Texture2D" uid="uid://ca1siudvkjdkf" path="res://assets/autumn_field_puresky_4k.exr" id="8_f3ysj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(100, 1, 1500)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1"]
+size = Vector3(100, 1, 1500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2"]
+size = Vector3(20, 1, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2"]
+size = Vector3(20, 1, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3"]
+size = Vector3(20, 5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3"]
+size = Vector3(20, 5, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_1"]
+left_to_right = 1.0
+size = Vector3(20, 5, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sbagp"]
+size = Vector3(21.0634, 5.95587, 21.1957)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4"]
+size = Vector3(1, 3, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4"]
+size = Vector3(1, 3, 100)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ixndj"]
+panorama = ExtResource("8_f3ysj")
+
+[sub_resource type="Sky" id="Sky_tojit"]
+sky_material = SubResource("PanoramaSkyMaterial_ixndj")
+
+[sub_resource type="Environment" id="Environment_75qwl"]
+background_mode = 2
+sky = SubResource("Sky_tojit")
+
+[node name="Main" type="Node"]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground"]
+shape = SubResource("BoxShape3D_1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground"]
+mesh = SubResource("BoxMesh_1")
+
+[node name="Plateau" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Plateau"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Plateau"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 133.496)
+mesh = SubResource("BoxMesh_2")
+
+[node name="PlateauWall" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -40)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/PlateauWall"]
+shape = SubResource("BoxShape3D_3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/PlateauWall"]
+mesh = SubResource("BoxMesh_3")
+
+[node name="Ramp1" type="StaticBody3D" parent="World"]
+transform = Transform3D(0.0223209, 0, 0.999751, 0, 1, 0, -0.999751, 0, 0.0223209, -3.11959, 1.79008, 10.4486)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ramp1"]
+transform = Transform3D(0.526481, 0, 0.850187, 0, 1, 0, -0.850187, 0, 0.526481, -35.7209, 0.47248, 9.60646)
+mesh = SubResource("PrismMesh_1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ramp1"]
+transform = Transform3D(0.97363, -0.227457, -0.0175723, 0.227543, 0.973763, 0.00305769, 0.0164157, -0.00697551, 0.999841, 0.702194, -2.81789, 0.250106)
+shape = SubResource("BoxShape3D_sbagp")
+
+[node name="LeftBorder" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/LeftBorder"]
+shape = SubResource("BoxShape3D_4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/LeftBorder"]
+mesh = SubResource("BoxMesh_4")
+
+[node name="RightBorder" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/RightBorder"]
+shape = SubResource("BoxShape3D_4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/RightBorder"]
+mesh = SubResource("BoxMesh_4")
+
+[node name="Voiture2" parent="World" instance=ExtResource("3_jilem")]
+transform = Transform3D(0.964332, 0, -0.264698, 0, 1, 0, 0.264698, 0, 0.964331, 28.5223, 3.5, 62.8817)
+collision_layer = 1
+collision_mask = 1
+mass = 40.0
+center_of_mass_mode = -1
+player_id = 2
+steering_control = "steering_2"
+throttle_control = "throttle_2"
+brake_control = "brake_2"
+reverse_control = "reverse_2"
+respawn_position = Vector3(5, 1, 40)
+fall_threshold = -5.0
+
+[node name="TrackballCamera" type="Camera3D" parent="World/Voiture2"]
+transform = Transform3D(0.852019, -0.131076, 0.506835, 0, 0.968147, 0.25038, -0.52351, -0.213329, 0.824881, 3.35727, 3.5, 9.82256)
+script = ExtResource("8_cansv")
+stabilize_horizon = true
+action_enabled = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(0.753187, -0.637514, 0.162129, -0.25742, -0.0588394, 0.964507, -0.605347, -0.768189, -0.208426, -18.2136, 17.3425, -18.0214)
+shadow_enabled = true
+
+[node name="Pieces" type="Node3D" parent="World"]
+
+[node name="Piece3" parent="World/Pieces" instance=ExtResource("4_h3ewm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7207, 2.00336, 57.3)
+
+[node name="Piece11" parent="World/Pieces" instance=ExtResource("4_h3ewm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.6257, 2.00336, 57.3)
+
+[node name="RoadBlock" parent="World" instance=ExtResource("5_tm70g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5474, 0, 0)
+
+[node name="RoadBlock" parent="World/RoadBlock" instance=ExtResource("5_tm70g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 20.2454)
+
+[node name="RoadBlock" parent="World/RoadBlock/RoadBlock" instance=ExtResource("5_tm70g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
+
+[node name="RoadBlock" parent="World/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_tm70g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
+
+[node name="RoadBlock" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_tm70g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
+
+[node name="RoadBlock" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_tm70g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
+
+[node name="tree1" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07678, 0, -19.8617)
+
+[node name="tree2" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88104, 0, -19.8617)
+
+[node name="tree3" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07678, 0, -29.0814)
+
+[node name="tree4" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88104, 0, -29.0814)
+
+[node name="tree5" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07678, 0, -38.1662)
+
+[node name="tree6" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88104, 0, -38.1662)
+
+[node name="tree7" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07678, 0, -50.1557)
+
+[node name="tree8" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88104, 0, -50.1557)
+
+[node name="tree9" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07678, 0, -63.2102)
+
+[node name="tree10" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88104, 0, -63.2102)
+
+[node name="tree11" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07678, 0, -79.7139)
+
+[node name="tree12" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88104, 0, -79.7139)
+
+[node name="tree13" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.07678, 0, -11.4697)
+
+[node name="tree14" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_dbgkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88104, 0, -11.4697)
+
+[node name="ProgressBars" parent="." instance=ExtResource("6_urbtb")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_0auik")]
+restart_scene_path = "res://screenshot_scene.tscn"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_75qwl")

@@ -4,9 +4,9 @@ extends Control  # Le script est attaché au root node de la scène PauseMenu
 @onready var resume_button = $CenterContainer2/VBoxContainer/ResumeButton
 @onready var home_button = $CenterContainer2/VBoxContainer/HomeButton
 
+@export var restart_scene_path: String = "res://piece_race.tscn"
+
 func _ready() -> void:
-	
-	print("je suis dans pause menue script")
 	# Cache le menu au démarrage
 	self.visible = false
 
@@ -31,7 +31,8 @@ func toggle_pause():
 
 func pause_game():
 	# Affiche le menu de pause
-	self.visible = true
+	if not ScoreManager.game_over:
+		self.visible = true
 	# Mets le jeu en pause (tout sauf les éléments en PROCESS_MODE_ALWAYS)
 	get_tree().paused = true
 
@@ -51,3 +52,10 @@ func _on_quit_button_pressed() -> void:
 	self.visible = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Interface/main_menu.tscn")
+
+
+func _on_restart_button_pressed() -> void:
+	self.visible = false
+	get_tree().paused = false
+	ScoreManager.reset_scores()
+	get_tree().change_scene_to_file(restart_scene_path)

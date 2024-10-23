@@ -1,16 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6hcauhmhu5ju"]
+[gd_scene load_steps=27 format=3 uid="uid://ce6me2sybqwv1"]
 
-[ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://assets/voiture/voiture.tscn" id="1_abcde"]
-[ext_resource type="PackedScene" uid="uid://dpu53vq1ny1mx" path="res://Interface/split_screen.tscn" id="1_xstgy"]
+[ext_resource type="PackedScene" uid="uid://b2topbm4ee1f4" path="res://Interface/victory_screen.tscn" id="1_2p81f"]
+[ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://voiture/voiture.tscn" id="1_abcde"]
+[ext_resource type="Script" path="res://scripts/camera_follow.gd" id="2_fghij"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://assets/piece/piece.tscn" id="3_klmno"]
 [ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://assets/voiture/cybertruck.tscn" id="4_buaph"]
-[ext_resource type="PackedScene" uid="uid://chmx6ph4f1ob0" path="res://music_course_1.tscn" id="6_jxe7y"]
 [ext_resource type="PackedScene" uid="uid://3f713efdenwi" path="res://Interface/pause_menu.tscn" id="6_wx2t4"]
-[ext_resource type="PackedScene" uid="uid://c82m1ad7xyuia" path="res://assets/map/route droite.tscn" id="7_njm81"]
-[ext_resource type="PackedScene" uid="uid://cnce6shn1r8xb" path="res://assets/map/route droite avec trait .tscn" id="8_h3onq"]
-[ext_resource type="PackedScene" uid="uid://ddstlqtrj64qe" path="res://assets/map/virage ligne droite.tscn" id="10_q578f"]
-[ext_resource type="PackedScene" uid="uid://ce7oagguvop00" path="res://assets/map/virage ligne gauche.tscn" id="11_tjhrh"]
-[ext_resource type="PackedScene" uid="uid://dqbrqm7kcmq8t" path="res://assets/map/virage.tscn" id="12_xvnky"]
+[ext_resource type="PackedScene" uid="uid://c8tp7bv5t4y7i" path="res://Interface/progress_bars.tscn" id="7_3rjlx"]
+[ext_resource type="PackedScene" uid="uid://gvkfk88mkw1x" path="res://Interface/score_manager.tscn" id="8_63qur"]
+[ext_resource type="Texture2D" uid="uid://ca1siudvkjdkf" path="res://assets/autumn_field_puresky_4k.exr" id="9_wy6xy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(100, 1, 1500)
@@ -55,9 +53,57 @@ size = Vector3(1, 3, 100)
 [sub_resource type="BoxMesh" id="BoxMesh_4"]
 size = Vector3(1, 3, 100)
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_75di2"]
+panorama = ExtResource("9_wy6xy")
+
+[sub_resource type="Sky" id="Sky_phefi"]
+sky_material = SubResource("PanoramaSkyMaterial_75di2")
+
+[sub_resource type="Environment" id="Environment_tc7wn"]
+background_mode = 2
+background_energy_multiplier = 0.85
+sky = SubResource("Sky_phefi")
+
 [node name="Main" type="Node"]
 
-[node name="SplitScreen" parent="." instance=ExtResource("1_xstgy")]
+[node name="VictoryScreen" parent="." instance=ExtResource("1_2p81f")]
+
+[node name="SplitScreen" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ViewportContainer1" type="SubViewportContainer" parent="SplitScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport1" type="SubViewport" parent="SplitScreen/ViewportContainer1"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="Camera3D1" type="Camera3D" parent="SplitScreen/ViewportContainer1/SubViewport1"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 15, 25)
+script = ExtResource("2_fghij")
+target_name = "Voiture1"
+
+[node name="ViewportContainer2" type="SubViewportContainer" parent="SplitScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport2" type="SubViewport" parent="SplitScreen/ViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="SplitScreen/ViewportContainer2/SubViewport2"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 15, 25)
+script = ExtResource("2_fghij")
+target_name = "Voiture2"
 
 [node name="World" type="Node3D" parent="."]
 
@@ -118,7 +164,7 @@ shape = SubResource("BoxShape3D_4")
 mesh = SubResource("BoxMesh_4")
 
 [node name="Voiture1" parent="World" instance=ExtResource("1_abcde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 40)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -43.5017, 2.42832, 29.546)
 collision_layer = 1
 collision_mask = 1
 mass = 40.0
@@ -127,17 +173,21 @@ steering_control = "steering_1"
 throttle_control = "throttle_1"
 brake_control = "brake_1"
 reverse_control = "reverse_1"
+respawn_position = Vector3(-5, 1, 40)
 
 [node name="Voiture2" parent="World" instance=ExtResource("4_buaph")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 40)
+transform = Transform3D(-0.998394, 0.0566579, 0, -0.0566579, -0.998394, 0, 0, 0, 1, 5, 3.7501, 40)
 collision_layer = 1
 collision_mask = 1
 mass = 40.0
 center_of_mass_mode = -1
+player_id = 2
 steering_control = "steering_2"
 throttle_control = "throttle_2"
 brake_control = "brake_2"
 reverse_control = "reverse_2"
+respawn_position = Vector3(5, 1, 40)
+fall_threshold = -5.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
 transform = Transform3D(0.753187, -0.637514, 0.162129, -0.25742, -0.0588394, 0.964507, -0.605347, -0.768189, -0.208426, -18.2136, 17.3425, -18.0214)
@@ -145,36 +195,31 @@ shadow_enabled = true
 
 [node name="Pieces" type="Node3D" parent="World"]
 
-[node name="Piece1" parent="World/Pieces" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -20)
-
-[node name="Piece2" parent="World/Pieces" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, 0)
-
-[node name="Piece3" parent="World/Pieces" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, 0)
-
 [node name="Piece4" parent="World/Pieces" instance=ExtResource("3_klmno")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696578, 30)
 
-[node name="Piece5" parent="World/Pieces" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+[node name="Piece6" parent="World/Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3923, 0.696578, 30)
 
-[node name="PauseMenu" parent="." instance=ExtResource("6_wx2t4")]
+[node name="Piece7" parent="World/Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6188, 0.696578, 30)
 
-[node name="BackgroundMusic" parent="." instance=ExtResource("6_jxe7y")]
+[node name="Piece8" parent="World/Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6188, 0.696578, 30)
 
-[node name="RouteDroiteTrait" parent="." instance=ExtResource("8_h3onq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 129)
+[node name="Piece9" parent="World/Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.8063, 0.696578, 30)
 
-[node name="RouteDroite" parent="." instance=ExtResource("7_njm81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 109)
+[node name="Piece10" parent="World/Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4715, 0.696578, 30)
 
-[node name="VirageLigneDroite" parent="." instance=ExtResource("10_q578f")]
-transform = Transform3D(-4.3938e-08, 0, 1.00518, 0, 1.00518, 0, -1.00518, 0, -4.3938e-08, 60, 0, 109)
+[node name="ProgressBars" parent="." instance=ExtResource("7_3rjlx")]
 
-[node name="VirageLigneGauche" parent="." instance=ExtResource("11_tjhrh")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 80, 0, 89)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Virage" parent="." instance=ExtResource("12_xvnky")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 89)
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_wx2t4")]
+
+[node name="ScoresManager" parent="." instance=ExtResource("8_63qur")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tc7wn")
