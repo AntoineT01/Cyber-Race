@@ -208,3 +208,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
 
 [node name="terrain" parent="." instance=ExtResource("5_uf4n7")]
+[node name="terrain" parent="." instance=ExtResource("5_0ds8p")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_6wjm1")]
+metadata/_edit_use_anchors_ = true

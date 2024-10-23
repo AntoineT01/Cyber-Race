@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://3f713efdenwi"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_d78tf"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d78tf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.427451)
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="CenterContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+text = "Reprendre"
+
+[node name="HomeButton" type="Button" parent="CenterContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "Menu principal"
+
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/HomeButton" to="." method="_on_quit_button_pressed"]
