@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://35i1avfoa44l"
+path="res://.godot/imported/Course Sauvage.mp3-a7972d43b9c0105723b8ca5fec0dd02d.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Course Sauvage.mp3"
+dest_files=["res://.godot/imported/Course Sauvage.mp3-a7972d43b9c0105723b8ca5fec0dd02d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

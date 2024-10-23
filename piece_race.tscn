@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://byb3r7xxuprh4"]
+[gd_scene load_steps=20 format=3 uid="uid://b6hcauhmhu5ju"]
 
 [ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://assets/voiture/voiture.tscn" id="1_abcde"]
 [ext_resource type="Script" path="res://scripts/camera_follow.gd" id="2_fghij"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://assets/piece/piece.tscn" id="3_klmno"]
 [ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://assets/voiture/cybertruck.tscn" id="4_buaph"]
+[ext_resource type="AudioStream" uid="uid://35i1avfoa44l" path="res://assets/music/Course Sauvage.mp3" id="6_lbhbh"]
 [ext_resource type="PackedScene" uid="uid://3f713efdenwi" path="res://Interface/pause_menu.tscn" id="6_wx2t4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
@@ -190,3 +191,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696578, 30)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_wx2t4")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lbhbh")
+volume_db = 18.983
+autoplay = true
