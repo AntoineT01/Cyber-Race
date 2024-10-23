@@ -1,5 +1,12 @@
 extends VehicleBody3D
 
+# Définition des signaux
+signal respawn_timer_started(player_id, time_left)
+signal respawn_timer_updated(player_id, time_left)
+signal respawn_timer_finished(player_id)
+
+@export var player_id: int = 1  # Identifiant unique pour chaque joueur
+
 @export var max_engine_force = 300.0
 @export var max_brake_force = 10.0
 @export var max_steer_angle = 0.5
@@ -58,8 +65,14 @@ func _physics_process(_delta):
 	# Vérifier si la voiture est à l'envers
 	if is_upside_down():
 		upside_down_timer += _delta
+		var time_left = respawn_if_upside_down_time - upside_down_timer
 		if upside_down_timer >= respawn_if_upside_down_time:
 			respawn()
+			emit_signal("respawn_timer_finished", player_id)
+		else:
+			if upside_down_timer - _delta <= 0:  # Première frame à l'envers
+				emit_signal("respawn_timer_started", player_id, respawn_if_upside_down_time)
+			emit_signal("respawn_timer_updated", player_id, clamp(time_left, 0, respawn_if_upside_down_time))
 	else:
 		upside_down_timer = 0.0
 

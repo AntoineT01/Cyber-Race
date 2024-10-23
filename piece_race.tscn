@@ -1,11 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://ce6me2sybqwv1"]
+[gd_scene load_steps=21 format=3 uid="uid://ce6me2sybqwv1"]
 
 [ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://voiture/voiture.tscn" id="1_abcde"]
 [ext_resource type="Script" path="res://camera_follow.gd" id="2_fghij"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://piece.tscn" id="3_klmno"]
 [ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://voiture/cybertruck.tscn" id="4_buaph"]
-[ext_resource type="PackedScene" uid="uid://dxwjn6fmudjrc" path="res://terrain.tscn" id="5_uf4n7"]
+[ext_resource type="PackedScene" uid="uid://dxwjn6fmudjrc" path="res://map/route droite.tscn" id="5_uf4n7"]
 [ext_resource type="PackedScene" uid="uid://3f713efdenwi" path="res://Interface/pause_menu.tscn" id="6_wx2t4"]
+[ext_resource type="Script" path="res://scripts/progress_bars.gd" id="7_ki04q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(100, 1, 1500)
@@ -160,11 +161,12 @@ reverse_control = "reverse_1"
 respawn_position = Vector3(-5, 1, 40)
 
 [node name="Voiture2" parent="World" instance=ExtResource("4_buaph")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 40)
+transform = Transform3D(-0.998394, 0.0566579, 0, -0.0566579, -0.998394, 0, 0, 0, 1, 5, 3.7501, 40)
 collision_layer = 1
 collision_mask = 1
 mass = 40.0
 center_of_mass_mode = -1
+player_id = 2
 steering_control = "steering_2"
 throttle_control = "throttle_2"
 brake_control = "brake_2"
@@ -212,3 +214,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_wx2t4")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(0, 40)
+transform = Transform2D(1, 0, 0, 1, 0, 40)
+script = ExtResource("7_ki04q")
+
+[node name="ProgressBars" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ProgressBars"]
+layout_mode = 2
+theme_override_constants/separation = 800
+alignment = 1
+
+[node name="VBoxContainer_Player1" type="VBoxContainer" parent="CanvasLayer/ProgressBars/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="RespawnProgressBarPlayer1" type="ProgressBar" parent="CanvasLayer/ProgressBars/HBoxContainer/VBoxContainer_Player1"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+max_value = 5.0
+step = 1.0
+show_percentage = false
+
+[node name="VBoxContainer_Player2" type="VBoxContainer" parent="CanvasLayer/ProgressBars/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="RespawnProgressBarPlayer2" type="ProgressBar" parent="CanvasLayer/ProgressBars/HBoxContainer/VBoxContainer_Player2"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+max_value = 5.0
+step = 1.0
+rounded = true
+fill_mode = 1
+show_percentage = false
