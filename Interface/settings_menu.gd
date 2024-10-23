@@ -92,7 +92,7 @@ func _on_fullscreen_checkbox_toggled(button_pressed):
 func _on_back_button_pressed():
 	print("Back button pressed")
 	SettingsManager.save_settings()
-	get_tree().change_scene_to_file("res://main_menu.tscn")  # Retour au menu principal
+	get_tree().change_scene_to_file("res://Interface/main_menu.tscn")  # Retour au menu principal
 
 # Quand un bouton pour configurer une touche est pressé
 func _on_key_button_pressed(button_index):

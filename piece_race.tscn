@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bnxxx"]
+[gd_scene load_steps=20 format=3 uid="uid://byb3r7xxuprh4"]
 
 [ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://voiture/voiture.tscn" id="1_abcde"]
 [ext_resource type="Script" path="res://camera_follow.gd" id="2_fghij"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://piece.tscn" id="3_klmno"]
 [ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://voiture/cybertruck.tscn" id="4_buaph"]
-[ext_resource type="PackedScene" path="res://terrain.tscn" id="5_uf4n7"]
+[ext_resource type="PackedScene" uid="uid://ucnm523qpc7x" path="res://terrain.tscn" id="5_uf4n7"]
+[ext_resource type="PackedScene" uid="uid://3f713efdenwi" path="res://Interface/pause_menu.tscn" id="6_wx2t4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(100, 1, 1500)
@@ -207,10 +208,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
 [node name="RoadBlock" parent="World/RoadBlock/RoadBlock/RoadBlock/RoadBlock/RoadBlock" instance=ExtResource("5_uf4n7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515709, 0, 19.2454)
 
-[node name="terrain" parent="." instance=ExtResource("5_uf4n7")]
-[node name="terrain" parent="." instance=ExtResource("5_0ds8p")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_6wjm1")]
-metadata/_edit_use_anchors_ = true
+[node name="PauseMenu" parent="." instance=ExtResource("6_wx2t4")]

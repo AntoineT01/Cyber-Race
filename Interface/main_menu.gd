@@ -55,4 +55,4 @@ func _on_race_button_pressed() -> void:
 
 
 func _on_settings_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://settings_menu.tscn")
+	get_tree().change_scene_to_file("res://Interface//settings_menu.tscn")

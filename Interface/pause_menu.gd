@@ -5,6 +5,8 @@ extends Control  # Le script est attaché au root node de la scène PauseMenu
 @onready var home_button = $CenterContainer2/VBoxContainer/HomeButton
 
 func _ready() -> void:
+	
+	print("je suis dans pause menue script")
 	# Cache le menu au démarrage
 	self.visible = false
 
@@ -48,4 +50,4 @@ func _on_quit_button_pressed() -> void:
 	# Changement de scène, reset des variables pour que si on revient dessus c'est ok
 	self.visible = false
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://Interface/main_menu.tscn")
