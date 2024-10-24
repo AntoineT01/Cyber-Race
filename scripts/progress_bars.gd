@@ -1,12 +1,12 @@
-extends CanvasLayer
+extends Control
 
-@onready var respawn_timer_label_player1 = $ProgressBars/HBoxContainer/VBoxContainer_Player1/RespawnProgressBarPlayer1
-@onready var respawn_timer_label_player2 = $ProgressBars/HBoxContainer/VBoxContainer_Player2/RespawnProgressBarPlayer2
+@onready var respawn_timer_label_player1 = $CanvasLayer/HBoxContainer/VBoxContainer_Player1/RespawnProgressBarPlayer1
+@onready var respawn_timer_label_player2 = $CanvasLayer/HBoxContainer/VBoxContainer_Player2/RespawnProgressBarPlayer2
 
 func _ready():
 	# Trouver les nœuds des voitures. Ajustez les chemins selon votre arborescence de scène.
-	var car1 = get_node("../World/Voiture1")  # Remplacez par le chemin réel sans $
-	var car2 = get_node("../World/Voiture2")  # Remplacez par le chemin réel sans $
+	var car1 = get_node("../World/Voiture1")
+	var car2 = get_node("../World/Voiture2")
 
 	if car1:
 		car1.connect("respawn_timer_started", Callable(self, "_on_respawn_timer_started"))
