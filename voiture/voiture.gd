@@ -132,6 +132,8 @@ func respawn():
 	# Réinitialiser le timer de l'envers
 	upside_down_timer = 0.0
 	is_respawn_timer_active = false
+	
+	ScoreManager.on_respawn(player_id)
 
 	# Optionnel : Afficher un message ou des effets de respawn
 	print(name + " a été respawné!")

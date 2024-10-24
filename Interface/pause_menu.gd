@@ -56,4 +56,5 @@ func _on_quit_button_pressed() -> void:
 func _on_restart_button_pressed() -> void:
 	self.visible = false
 	get_tree().paused = false
+	ScoreManager.reset_scores()
 	get_tree().change_scene_to_file("res://piece_race.tscn")

@@ -51,7 +51,7 @@ func load_settings():
 
 func save_settings():
 	var json = JSON.new()
-	var data = json.stringify(settings)
+	var data = JSON.stringify(settings)
 	var file = FileAccess.open("user://settings.json", FileAccess.WRITE)
 	if file:
 		file.store_string(data)

@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 SettingsManager="*res://scripts/settings_manager.gd"
+ScoreManager="*res://scripts/score_manager.gd"
+
+[global_group]
+
+pieces=""
 
 [input]
 

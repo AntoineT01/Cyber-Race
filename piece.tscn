@@ -15,7 +15,7 @@ roughness = 0.3
 [sub_resource type="SphereShape3D" id="SphereShape3D_1"]
 radius = 0.8
 
-[node name="Piece" type="Area3D"]
+[node name="Piece" type="Area3D" groups=["pieces"]]
 script = ExtResource("1_abcde")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
