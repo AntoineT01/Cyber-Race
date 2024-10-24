@@ -1,3 +1,4 @@
+# ProgressBar.gd
 extends Control
 
 @onready var respawn_timer_label_player1 = $CanvasLayer/HBoxContainer/VBoxContainer_Player1/RespawnProgressBarPlayer1
@@ -12,11 +13,13 @@ func _ready():
 		car1.connect("respawn_timer_started", Callable(self, "_on_respawn_timer_started"))
 		car1.connect("respawn_timer_updated", Callable(self, "_on_respawn_timer_updated"))
 		car1.connect("respawn_timer_finished", Callable(self, "_on_respawn_timer_finished"))
+		car1.connect("respawn_timer_cancelled", Callable(self, "_on_respawn_timer_cancelled"))  # Connexion du nouveau signal
 
 	if car2:
 		car2.connect("respawn_timer_started", Callable(self, "_on_respawn_timer_started"))
 		car2.connect("respawn_timer_updated", Callable(self, "_on_respawn_timer_updated"))
 		car2.connect("respawn_timer_finished", Callable(self, "_on_respawn_timer_finished"))
+		car2.connect("respawn_timer_cancelled", Callable(self, "_on_respawn_timer_cancelled"))  # Connexion du nouveau signal
 
 	# Initialiser les ProgressBars
 	respawn_timer_label_player1.visible = false
@@ -40,6 +43,12 @@ func _on_respawn_timer_updated(player_id, time_left):
 
 func _on_respawn_timer_finished(player_id):
 	print("Finished ", player_id)
+	if player_id == 1:
+		respawn_timer_label_player1.visible = false
+	elif player_id == 2:
+		respawn_timer_label_player2.visible = false
+
+func _on_respawn_timer_cancelled(player_id):
 	if player_id == 1:
 		respawn_timer_label_player1.visible = false
 	elif player_id == 2:

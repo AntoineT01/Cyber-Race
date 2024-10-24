@@ -4,6 +4,7 @@ extends VehicleBody3D
 signal respawn_timer_started(player_id, time_left)
 signal respawn_timer_updated(player_id, time_left)
 signal respawn_timer_finished(player_id)
+signal respawn_timer_cancelled(player_id)  # Nouveau signal ajouté
 
 @export var player_id: int = 1  # Identifiant unique pour chaque joueur
 
@@ -35,6 +36,11 @@ var brake_light_material: StandardMaterial3D
 
 # Variables pour gérer le respawn lorsqu'à l'envers
 var upside_down_timer: float = 0.0
+var is_respawn_timer_active: bool = false  # Variable pour suivre l'état du timer
+
+# Définition des seuils de vitesse
+const MAX_LINEAR_VELOCITY = 5.0  # Unités par seconde
+const MAX_ANGULAR_VELOCITY = 1.0  # Radians par seconde
 
 func _ready():
 	add_to_group("players")
@@ -62,19 +68,29 @@ func _physics_process(_delta):
 	if global_transform.origin.y < fall_threshold:
 		respawn()
 
-	# Vérifier si la voiture est à l'envers
-	if is_upside_down():
+	# Vérifier si la voiture est à l'envers ET si elle ne bouge pas beaucoup
+	var currently_upside_down = is_upside_down() and is_moving_little()
+	if currently_upside_down:
+		if not is_respawn_timer_active:
+			is_respawn_timer_active = true
+			upside_down_timer = 0.0
+			emit_signal("respawn_timer_started", player_id, respawn_if_upside_down_time)
 		upside_down_timer += _delta
 		var time_left = respawn_if_upside_down_time - upside_down_timer
 		if upside_down_timer >= respawn_if_upside_down_time:
 			respawn()
 			emit_signal("respawn_timer_finished", player_id)
+			is_respawn_timer_active = false
 		else:
-			if upside_down_timer - _delta <= 0:  # Première frame à l'envers
-				emit_signal("respawn_timer_started", player_id, respawn_if_upside_down_time)
 			emit_signal("respawn_timer_updated", player_id, clamp(time_left, 0, respawn_if_upside_down_time))
 	else:
+		if is_respawn_timer_active:
+			is_respawn_timer_active = false
+			emit_signal("respawn_timer_cancelled", player_id)  # Émettre le signal lorsque le timer est annulé
 		upside_down_timer = 0.0
+
+func is_moving_little() -> bool:
+	return linear_velocity.length() < MAX_LINEAR_VELOCITY and angular_velocity.length() < MAX_ANGULAR_VELOCITY
 
 func _integrate_forces(_state):
 	if last_collision_force != Vector3.ZERO:
@@ -115,6 +131,7 @@ func respawn():
 
 	# Réinitialiser le timer de l'envers
 	upside_down_timer = 0.0
+	is_respawn_timer_active = false
 
 	# Optionnel : Afficher un message ou des effets de respawn
 	print(name + " a été respawné!")

@@ -149,7 +149,7 @@ shape = SubResource("BoxShape3D_4")
 mesh = SubResource("BoxMesh_4")
 
 [node name="Voiture1" parent="World" instance=ExtResource("1_abcde")]
-transform = Transform3D(-0.999764, -0.0217103, 0, 0.0217103, -0.999764, 0, 0, 0, 1, -5, 2.42832, 40)
+transform = Transform3D(-0.0354576, -0.999371, 0, 0.999371, -0.0354576, 0, 0, 0, 1, -5, 2.42832, 40)
 collision_layer = 1
 collision_mask = 1
 mass = 40.0
