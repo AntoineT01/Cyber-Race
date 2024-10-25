@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg3cnyqvblu0i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ijro5"]
+size = Vector3(0.2, 0, 4.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw51u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tegdg"]
+
+[node name="Line-bas-droit" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 0.001, 7.85)
+skeleton = NodePath("InteriorLine")
+
+[node name="InteriorLine" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ijro5")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_pw51u")
+
+[node name="InteriorLine2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.05, 0.001, -2.05)
+mesh = SubResource("BoxMesh_ijro5")
+skeleton = NodePath("../InteriorLine")
+surface_material_override/0 = SubResource("StandardMaterial3D_tegdg")

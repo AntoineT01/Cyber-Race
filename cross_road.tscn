@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfdotnbbxsqgi"]
+
+[ext_resource type="PackedScene" uid="uid://cg3cnyqvblu0i" path="res://Interface/line_angle.tscn" id="1_esb0j"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hrudk"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ct0bc"]
+albedo_color = Color(0.4, 0.2, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wusfh"]
+margin = 0.0
+size = Vector3(20, 1, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1e5so"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lc44j"]
+albedo_color = Color(0.1, 0.5, 0.1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qshnr"]
+size = Vector2(12, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcelk"]
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycws8"]
+margin = 0.0
+size = Vector3(12, 0, 16)
+
+[node name="CrossRoad" type="Node3D"]
+
+[node name="EarthBase" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EarthBase"]
+mesh = SubResource("BoxMesh_hrudk")
+surface_material_override/0 = SubResource("StandardMaterial3D_ct0bc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthBase"]
+shape = SubResource("BoxShape3D_wusfh")
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+mesh = SubResource("PlaneMesh_1e5so")
+surface_material_override/0 = SubResource("StandardMaterial3D_lc44j")
+
+[node name="Road" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+
+[node name="RoadGround1" type="MeshInstance3D" parent="Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = SubResource("PlaneMesh_qshnr")
+surface_material_override/0 = SubResource("StandardMaterial3D_gcelk")
+
+[node name="RoadGround2" type="MeshInstance3D" parent="Road"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 0)
+mesh = SubResource("PlaneMesh_qshnr")
+surface_material_override/0 = SubResource("StandardMaterial3D_gcelk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Road"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 0)
+shape = SubResource("BoxShape3D_ycws8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+shape = SubResource("BoxShape3D_ycws8")
+
+[node name="RoadGround3" type="MeshInstance3D" parent="Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+mesh = SubResource("PlaneMesh_qshnr")
+skeleton = NodePath("../RoadGround1")
+surface_material_override/0 = SubResource("StandardMaterial3D_gcelk")
+
+[node name="RoadGround4" type="MeshInstance3D" parent="Road"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
+mesh = SubResource("PlaneMesh_qshnr")
+skeleton = NodePath("../RoadGround3")
+surface_material_override/0 = SubResource("StandardMaterial3D_gcelk")
+
+[node name="Line-bas-droit" parent="Road" instance=ExtResource("1_esb0j")]
+
+[node name="Line-haut-droit" parent="Road" instance=ExtResource("1_esb0j")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.85, 0.001, -5.8)
+
+[node name="Line-bas-gauche" parent="Road" instance=ExtResource("1_esb0j")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.85, 0.002, 5.8)
+skeleton = NodePath("../Line-bas-droit/InteriorLine")
+
+[node name="Line-bas-gauche2" parent="Road" instance=ExtResource("1_esb0j")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5.8, 0.004, -7.85)
+skeleton = NodePath("../Line-bas-droit/InteriorLine")
