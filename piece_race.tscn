@@ -1,11 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://b6hcauhmhu5ju"]
+[gd_scene load_steps=25 format=3 uid="uid://b6hcauhmhu5ju"]
 
 [ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://assets/voiture/voiture.tscn" id="1_abcde"]
-[ext_resource type="Script" path="res://scripts/camera_follow.gd" id="2_fghij"]
+[ext_resource type="PackedScene" uid="uid://dpu53vq1ny1mx" path="res://Interface/split_screen.tscn" id="1_xstgy"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://assets/piece/piece.tscn" id="3_klmno"]
 [ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://assets/voiture/cybertruck.tscn" id="4_buaph"]
-[ext_resource type="AudioStream" uid="uid://35i1avfoa44l" path="res://assets/music/Course Sauvage.mp3" id="6_lbhbh"]
+[ext_resource type="PackedScene" uid="uid://chmx6ph4f1ob0" path="res://music_course_1.tscn" id="6_jxe7y"]
 [ext_resource type="PackedScene" uid="uid://3f713efdenwi" path="res://Interface/pause_menu.tscn" id="6_wx2t4"]
+[ext_resource type="PackedScene" uid="uid://c82m1ad7xyuia" path="res://assets/map/route droite.tscn" id="7_njm81"]
+[ext_resource type="PackedScene" uid="uid://cnce6shn1r8xb" path="res://assets/map/route droite avec trait .tscn" id="8_h3onq"]
+[ext_resource type="PackedScene" uid="uid://ddstlqtrj64qe" path="res://assets/map/virage ligne droite.tscn" id="10_q578f"]
+[ext_resource type="PackedScene" uid="uid://ce7oagguvop00" path="res://assets/map/virage ligne gauche.tscn" id="11_tjhrh"]
+[ext_resource type="PackedScene" uid="uid://dqbrqm7kcmq8t" path="res://assets/map/virage.tscn" id="12_xvnky"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(100, 1, 1500)
@@ -52,42 +57,7 @@ size = Vector3(1, 3, 100)
 
 [node name="Main" type="Node"]
 
-[node name="SplitScreen" type="HBoxContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ViewportContainer1" type="SubViewportContainer" parent="SplitScreen"]
-layout_mode = 2
-size_flags_horizontal = 3
-stretch = true
-
-[node name="SubViewport1" type="SubViewport" parent="SplitScreen/ViewportContainer1"]
-handle_input_locally = false
-size = Vector2i(574, 648)
-render_target_update_mode = 4
-
-[node name="Camera3D1" type="Camera3D" parent="SplitScreen/ViewportContainer1/SubViewport1"]
-transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 15, 25)
-script = ExtResource("2_fghij")
-target_name = "Voiture1"
-
-[node name="ViewportContainer2" type="SubViewportContainer" parent="SplitScreen"]
-layout_mode = 2
-size_flags_horizontal = 3
-stretch = true
-
-[node name="SubViewport2" type="SubViewport" parent="SplitScreen/ViewportContainer2"]
-handle_input_locally = false
-size = Vector2i(574, 648)
-render_target_update_mode = 4
-
-[node name="Camera3D2" type="Camera3D" parent="SplitScreen/ViewportContainer2/SubViewport2"]
-transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 15, 25)
-script = ExtResource("2_fghij")
-target_name = "Voiture2"
+[node name="SplitScreen" parent="." instance=ExtResource("1_xstgy")]
 
 [node name="World" type="Node3D" parent="."]
 
@@ -192,7 +162,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_wx2t4")]
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_lbhbh")
-volume_db = 18.983
-autoplay = true
+[node name="BackgroundMusic" parent="." instance=ExtResource("6_jxe7y")]
+
+[node name="RouteDroiteTrait" parent="." instance=ExtResource("8_h3onq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 129)
+
+[node name="RouteDroite" parent="." instance=ExtResource("7_njm81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 109)
+
+[node name="VirageLigneDroite" parent="." instance=ExtResource("10_q578f")]
+transform = Transform3D(-4.3938e-08, 0, 1.00518, 0, 1.00518, 0, -1.00518, 0, -4.3938e-08, 60, 0, 109)
+
+[node name="VirageLigneGauche" parent="." instance=ExtResource("11_tjhrh")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 80, 0, 89)
+
+[node name="Virage" parent="." instance=ExtResource("12_xvnky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 89)

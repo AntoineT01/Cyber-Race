@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://chmx6ph4f1ob0"]
+
+[ext_resource type="AudioStream" uid="uid://35i1avfoa44l" path="res://assets/music/Course Sauvage.mp3" id="1_dopau"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_dopau")
+volume_db = 18.983
+autoplay = true

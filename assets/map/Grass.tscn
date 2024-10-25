@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3agw280mswxb"]
+[gd_scene load_steps=6 format=3 uid="uid://hfy4hgenjycf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jbm01"]
 size = Vector3(20, 1, 20)
@@ -16,6 +16,7 @@ size = Vector2(20, 20)
 albedo_color = Color(0.1, 0.5, 0.1, 1)
 
 [node name="Grass" type="Node3D"]
+metadata/_edit_group_ = true
 
 [node name="EarthBase" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

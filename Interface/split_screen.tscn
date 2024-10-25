@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpu53vq1ny1mx"]
+
+[ext_resource type="Script" path="res://scripts/camera_follow.gd" id="1_s3e45"]
+
+[node name="SplitScreen" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ViewportContainer1" type="SubViewportContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport1" type="SubViewport" parent="ViewportContainer1"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="Camera3D1" type="Camera3D" parent="ViewportContainer1/SubViewport1"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 15, 25)
+script = ExtResource("1_s3e45")
+target_name = "Voiture1"
+
+[node name="ViewportContainer2" type="SubViewportContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport2" type="SubViewport" parent="ViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="ViewportContainer2/SubViewport2"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 15, 25)
+script = ExtResource("1_s3e45")
+target_name = "Voiture2"

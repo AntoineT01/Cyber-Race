@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxwjn6fmudjrc"]
+[gd_scene load_steps=13 format=3 uid="uid://cnce6shn1r8xb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_base"]
 size = Vector3(20, 1, 20)
@@ -22,20 +22,23 @@ size = Vector2(12, 20)
 albedo_color = Color(0.2, 0.2, 0.2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_road"]
-size = Vector3(12, 0.1, 20)
+size = Vector3(12, 0, 20)
 
-[sub_resource type="BoxMesh" id="BoxMesh_line"]
-size = Vector3(0.2, 0.02, 20)
+[sub_resource type="BoxMesh" id="BoxMesh_1k3da"]
+size = Vector3(0.2, 0, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_line"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60qab"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_center_line"]
 size = Vector3(0.2, 0.02, 3)
 
-[node name="RoadBlock" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_line"]
+
+[node name="RouteDroiteTrait" type="Node3D"]
 
 [node name="EarthBase" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="EarthBase"]
 mesh = SubResource("BoxMesh_base")
@@ -48,52 +51,54 @@ shape = SubResource("BoxShape3D_base")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 mesh = SubResource("PlaneMesh_grass")
 surface_material_override/0 = SubResource("StandardMaterial3D_grass")
+metadata/_edit_group_ = true
 
 [node name="Road" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+metadata/_edit_group_ = true
 
 [node name="RoadGround" type="MeshInstance3D" parent="Road"]
 mesh = SubResource("PlaneMesh_road")
 surface_material_override/0 = SubResource("StandardMaterial3D_road")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_road")
 
 [node name="LeftLine" type="MeshInstance3D" parent="Road"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, 0.04, 0)
-mesh = SubResource("BoxMesh_line")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, 0.00999999, 0)
+mesh = SubResource("BoxMesh_1k3da")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_line")
+surface_material_override/0 = SubResource("StandardMaterial3D_60qab")
 
 [node name="RightLine" type="MeshInstance3D" parent="Road"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 0, 0)
-mesh = SubResource("BoxMesh_line")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 0.00999999, 0)
+mesh = SubResource("BoxMesh_1k3da")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_line")
+surface_material_override/0 = SubResource("StandardMaterial3D_60qab")
 
 [node name="CenterLines" type="Node3D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CenterLines"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -8.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.5)
 mesh = SubResource("BoxMesh_center_line")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_line")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="CenterLines"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -3.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5)
 mesh = SubResource("BoxMesh_center_line")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_line")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="CenterLines"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
 mesh = SubResource("BoxMesh_center_line")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_line")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="CenterLines"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 6.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
 mesh = SubResource("BoxMesh_center_line")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_line")
