@@ -5,10 +5,21 @@ extends Control
 @onready var respawn_timer_label_player2 = $CanvasLayer/HBoxContainer/VBoxContainer_Player2/RespawnProgressBarPlayer2
 
 func _ready():
-	# Trouver les nœuds des voitures. Ajustez les chemins selon votre arborescence de scène.
-	var car1 = get_node("../World/Voiture1")
-	var car2 = get_node("../World/Voiture2")
+	# Trouver tous les nœuds dans le groupe "cars"
+	var cars = get_tree().get_nodes_in_group("cars")
+	var car1
+	var car2
+	# Vérifier qu'il y a au moins deux voitures dans le groupe
+	if cars.size() >= 2:
+		# Assigner les deux premières voitures trouvées à car1 et car2
+		car1 = cars[0] as VehicleBody3D
+		car2 = cars[1] as VehicleBody3D
 
+		if !car1 or !car2:
+			push_warning("Les nœuds trouvés dans le groupe 'cars' ne sont pas des VehicleBody3D.")
+	else:
+		push_warning("Pas assez de voitures trouvées dans le groupe 'cars'. Au moins deux voitures sont nécessaires.")
+		
 	if car1:
 		car1.connect("respawn_timer_started", Callable(self, "_on_respawn_timer_started"))
 		car1.connect("respawn_timer_updated", Callable(self, "_on_respawn_timer_updated"))
