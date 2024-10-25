@@ -51,7 +51,7 @@ func _on_pieces_race_button_pressed() -> void:
 
 
 func _on_race_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://screenshot_scene.tscn")
+	get_tree().change_scene_to_file("res://main_scenes/race.tscn")
 
 
 func _on_settings_button_pressed() -> void:

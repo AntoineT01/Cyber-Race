@@ -22,7 +22,7 @@ func _on_restart_pressed():
 	# Réinitialiser les scores
 	ScoreManager.reset_scores()
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://piece_race.tscn")
+	get_tree().reload_current_scene()
 
 func _on_home_pressed() -> void:
 	ScoreManager.reset_scores()

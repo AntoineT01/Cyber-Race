@@ -6,6 +6,8 @@ extends Control  # Le script est attaché au root node de la scène PauseMenu
 
 @export var restart_scene_path: String = "res://piece_race.tscn"
 
+var is_paused = false
+
 func _ready() -> void:
 	# Cache le menu au démarrage
 	self.visible = false
@@ -24,7 +26,9 @@ func _process(_delta):
 
 # Fonction pour basculer entre pause et reprise
 func toggle_pause():
-	if get_tree().paused:
+	if get_tree().paused && !is_paused:
+		return
+	if get_tree().paused && is_paused:
 		resume_game()
 	else:
 		pause_game()

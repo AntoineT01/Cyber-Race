@@ -1,15 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://b6hcauhmhu5ju"]
+[gd_scene load_steps=18 format=3 uid="uid://ce6me2sybqwv1"]
 
-[ext_resource type="PackedScene" path="res://Interface/victory_screen.tscn" id="1_2p81f"]
 [ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://assets/voiture/voiture.tscn" id="1_abcde"]
-[ext_resource type="Script" path="res://scripts/camera_follow.gd" id="2_fghij"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://assets/piece/piece.tscn" id="3_klmno"]
 [ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://assets/voiture/cybertruck.tscn" id="4_buaph"]
-[ext_resource type="PackedScene" uid="uid://3f713efdenwi" path="res://Interface/pause_menu.tscn" id="6_wx2t4"]
-[ext_resource type="PackedScene" path="res://Interface/progress_bars.tscn" id="7_3rjlx"]
-[ext_resource type="PackedScene" path="res://Interface/score_manager.tscn" id="8_63qur"]
-[ext_resource type="Texture2D" uid="uid://ca1siudvkjdkf" path="res://assets/autumn_field_puresky_4k.exr" id="9_wy6xy"]
-[ext_resource type="PackedScene" uid="uid://dpsif1d7raor4" path="res://map_1.tscn" id="13_d514v"]
+[ext_resource type="PackedScene" uid="uid://b6jsyexb5fyy7" path="res://utils/utilitaries.tscn" id="4_yxah2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(100, 1, 1500)
@@ -54,61 +48,9 @@ size = Vector3(1, 3, 100)
 [sub_resource type="BoxMesh" id="BoxMesh_4"]
 size = Vector3(1, 3, 100)
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_75di2"]
-panorama = ExtResource("9_wy6xy")
-
-[sub_resource type="Sky" id="Sky_phefi"]
-sky_material = SubResource("PanoramaSkyMaterial_75di2")
-
-[sub_resource type="Environment" id="Environment_tc7wn"]
-background_mode = 2
-background_energy_multiplier = 0.85
-sky = SubResource("Sky_phefi")
-ambient_light_energy = 2.0
-
 [node name="Main" type="Node"]
 
-[node name="VictoryScreen" parent="." instance=ExtResource("1_2p81f")]
-
-[node name="SplitScreen" type="HBoxContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ViewportContainer1" type="SubViewportContainer" parent="SplitScreen"]
-layout_mode = 2
-size_flags_horizontal = 3
-stretch = true
-
-[node name="SubViewport1" type="SubViewport" parent="SplitScreen/ViewportContainer1"]
-handle_input_locally = false
-size = Vector2i(2, 2)
-render_target_update_mode = 4
-
-[node name="Camera3D1" type="Camera3D" parent="SplitScreen/ViewportContainer1/SubViewport1"]
-transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 15, 25)
-script = ExtResource("2_fghij")
-target_name = "Voiture1"
-
-[node name="ViewportContainer2" type="SubViewportContainer" parent="SplitScreen"]
-layout_mode = 2
-size_flags_horizontal = 3
-stretch = true
-
-[node name="SubViewport2" type="SubViewport" parent="SplitScreen/ViewportContainer2"]
-handle_input_locally = false
-size = Vector2i(2, 2)
-render_target_update_mode = 4
-
-[node name="Camera3D2" type="Camera3D" parent="SplitScreen/ViewportContainer2/SubViewport2"]
-transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 15, 25)
-script = ExtResource("2_fghij")
-target_name = "Voiture2"
-
 [node name="World" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136, 0, 0)
 
 [node name="Ground" type="StaticBody3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -120,7 +62,7 @@ shape = SubResource("BoxShape3D_1")
 mesh = SubResource("BoxMesh_1")
 
 [node name="Plateau" type="StaticBody3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 2.5, -19)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -20)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Plateau"]
 shape = SubResource("BoxShape3D_2")
@@ -166,21 +108,8 @@ shape = SubResource("BoxShape3D_4")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/RightBorder"]
 mesh = SubResource("BoxMesh_4")
 
-[node name="ProgressBars" parent="." instance=ExtResource("7_3rjlx")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_wx2t4")]
-
-[node name="ScoresManager" parent="." instance=ExtResource("8_63qur")]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tc7wn")
-
-[node name="map 1" parent="." instance=ExtResource("13_d514v")]
-
-[node name="Voiture1" parent="map 1" instance=ExtResource("1_abcde")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2, 2.428, -19)
+[node name="Voiture1" parent="World" groups=["cars"] instance=ExtResource("1_abcde")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -43.5017, 2.42832, 29.546)
 collision_layer = 1
 collision_mask = 1
 mass = 40.0
@@ -189,11 +118,10 @@ steering_control = "steering_1"
 throttle_control = "throttle_1"
 brake_control = "brake_1"
 reverse_control = "reverse_1"
-collision_push_force = 500.0
-respawn_position = Vector3(2, 3, -19)
+respawn_position = Vector3(-5, 1, 40)
 
-[node name="Voiture2" parent="map 1" instance=ExtResource("4_buaph")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3.75, -19)
+[node name="Voiture2" parent="World" groups=["cars"] instance=ExtResource("4_buaph")]
+transform = Transform3D(-0.998394, 0.0566579, 0, -0.0566579, -0.998394, 0, 0, 0, 1, 5, 3.7501, 40)
 collision_layer = 1
 collision_mask = 1
 mass = 40.0
@@ -203,35 +131,26 @@ steering_control = "steering_2"
 throttle_control = "throttle_2"
 brake_control = "brake_2"
 reverse_control = "reverse_2"
-respawn_position = Vector3(-2, 3, -19)
-fall_threshold = -5.0
+respawn_position = Vector3(5, 1, 40)
 
-[node name="Piece4" parent="map 1" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.696578, 30)
+[node name="Pieces" type="Node3D" parent="World"]
 
-[node name="Piece5" parent="map 1" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.696578, 30)
+[node name="Piece4" parent="World/Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696578, 30)
 
-[node name="Piece6" parent="map 1" instance=ExtResource("3_klmno")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 49, 0.696578, 40)
+[node name="Piece6" parent="World/Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3923, 0.696578, 30)
 
-[node name="Piece7" parent="map 1" instance=ExtResource("3_klmno")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60, 0.696578, 40)
+[node name="Piece7" parent="World/Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6188, 0.696578, 30)
 
-[node name="Piece8" parent="map 1" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 40, 0.696578, 42)
+[node name="Piece8" parent="World/Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6188, 0.696578, 30)
 
-[node name="Piece9" parent="map 1" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0.696578, 32)
+[node name="Piece9" parent="World/Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.8063, 0.696578, 30)
 
-[node name="Piece10" parent="map 1" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99, 0.696578, -20)
+[node name="Piece10" parent="World/Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4715, 0.696578, 30)
 
-[node name="Piece11" parent="map 1" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0.696578, -20)
-
-[node name="Piece12" parent="map 1" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 0.696578, -20)
-
-[node name="Piece13" parent="map 1" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.696578, -20)
+[node name="Utilitaries" parent="." instance=ExtResource("4_yxah2")]

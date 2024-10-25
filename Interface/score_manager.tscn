@@ -32,7 +32,6 @@ alignment = 1
 
 [node name="ScoreDisplay" parent="CanvasLayer/HBoxContainer/VBoxContainer_Player1" instance=ExtResource("1_neyjc")]
 layout_mode = 2
-player_name = "Player1"
 
 [node name="VBoxContainer_Player2" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
@@ -41,5 +40,4 @@ alignment = 1
 
 [node name="ScoreDisplay2" parent="CanvasLayer/HBoxContainer/VBoxContainer_Player2" instance=ExtResource("1_neyjc")]
 layout_mode = 2
-player_name = "Player2"
 player_id = 2

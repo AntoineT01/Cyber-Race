@@ -25,9 +25,9 @@ signal respawn_timer_cancelled(player_id: int)
 
 @export var respawn_position: Vector3 = Vector3(0, 5, 0)  # Position de respawn par défaut
 @export var respawn_rotation: Vector3 = Vector3.ZERO  # Rotation de respawn par défaut (angles d'Euler en radians)
-@export var fall_threshold: float = -10.0  # Seuil de chute en Y
+@export var fall_threshold: float = -5.0  # Seuil de chute en Y
 
-@export var respawn_if_upside_down_time: float = 5.0  # Temps en secondes avant respawn si à l'envers
+@export var respawn_if_upside_down_time: float = 3.0  # Temps en secondes avant respawn si à l'envers
 
 @onready var left_taillight = $Taillights/LeftTaillight
 @onready var right_taillight = $Taillights/RightTaillight
@@ -154,8 +154,13 @@ func respawn():
 	# Réinitialiser le timer de l'envers
 	upside_down_timer = 0.0
 	is_respawn_timer_active = false
-	
-	ScoreManager.on_respawn(player_id)
+	if ScoreManager.victory_type == ScoreManager.VictoryType.LAPS:
+		var race_manager = get_node("/root/Race/RaceManager")
+		if race_manager:
+			race_manager.reset_car_counters(self)
+			print("Réinitialisation des compteurs pour ", self.name)
+		else:
+			print("RaceManager non trouvé!")
 
 	# Optionnel : Afficher un message ou des effets de respawn
 	print(name + " a été respawné!")
