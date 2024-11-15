@@ -24,15 +24,15 @@ albedo_color = Color(0.2, 0.2, 0.2, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_road"]
 size = Vector3(12, 0, 20)
 
-[sub_resource type="BoxMesh" id="BoxMesh_1k3da"]
-size = Vector3(0.2, 0, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60qab"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_center_line"]
 size = Vector3(0.2, 0.02, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_line"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1k3da"]
+size = Vector3(0.2, 0, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60qab"]
 
 [node name="RouteDroiteTrait" type="Node3D"]
 
@@ -64,18 +64,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_road")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road"]
 shape = SubResource("BoxShape3D_road")
 
-[node name="LeftLine" type="MeshInstance3D" parent="Road"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, 0.00999999, 0)
-mesh = SubResource("BoxMesh_1k3da")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_60qab")
-
-[node name="RightLine" type="MeshInstance3D" parent="Road"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 0.00999999, 0)
-mesh = SubResource("BoxMesh_1k3da")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_60qab")
-
 [node name="CenterLines" type="Node3D" parent="."]
 metadata/_edit_group_ = true
 
@@ -102,3 +90,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
 mesh = SubResource("BoxMesh_center_line")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_line")
+
+[node name="LeftLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, 0.012, 0)
+mesh = SubResource("BoxMesh_1k3da")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_60qab")
+
+[node name="RightLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 0.012, 0)
+mesh = SubResource("BoxMesh_1k3da")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_60qab")

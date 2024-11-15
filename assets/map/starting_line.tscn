@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://b6xufot4sg2a6"]
+
+[ext_resource type="PackedScene" uid="uid://dwv1k3n7v5kp5" path="res://assets/map/objet/start_voiture.tscn" id="1_r2ae3"]
+[ext_resource type="PackedScene" uid="uid://cpbskkryf43lr" path="res://assets/map/objet/start_line.tscn" id="2_vaivo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o6gji"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8faf"]
+albedo_color = Color(0.4, 0.2, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tp7yp"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3hr1r"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50yjr"]
+albedo_color = Color(0.1, 0.5, 0.1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bgdrb"]
+size = Vector2(12, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yryj6"]
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qh01p"]
+size = Vector3(12, 0, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_owmxo"]
+size = Vector3(0.2, 0, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urgn4"]
+
+[node name="Starting Line" type="Node3D"]
+
+[node name="EarthBase" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EarthBase"]
+mesh = SubResource("BoxMesh_o6gji")
+surface_material_override/0 = SubResource("StandardMaterial3D_s8faf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthBase"]
+shape = SubResource("BoxShape3D_tp7yp")
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+mesh = SubResource("PlaneMesh_3hr1r")
+surface_material_override/0 = SubResource("StandardMaterial3D_50yjr")
+
+[node name="Road" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+
+[node name="RoadGround" type="MeshInstance3D" parent="Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 0)
+mesh = SubResource("PlaneMesh_bgdrb")
+surface_material_override/0 = SubResource("StandardMaterial3D_yryj6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Road"]
+shape = SubResource("BoxShape3D_qh01p")
+
+[node name="LeftLine" type="MeshInstance3D" parent="Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, 0.00999999, 0)
+mesh = SubResource("BoxMesh_owmxo")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_urgn4")
+
+[node name="RightLine" type="MeshInstance3D" parent="Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 0.00999999, 0)
+mesh = SubResource("BoxMesh_owmxo")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_urgn4")
+
+[node name="start voiture" parent="." instance=ExtResource("1_r2ae3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56277, 0, 2.57333)
+
+[node name="start voiture2" parent="." instance=ExtResource("1_r2ae3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89797, 0, 5.58153)
+skeleton = NodePath("../start voiture")
+
+[node name="start voiture3" parent="." instance=ExtResource("1_r2ae3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48169, 0, -2.28105)
+skeleton = NodePath("../start voiture")
+
+[node name="start voiture4" parent="." instance=ExtResource("1_r2ae3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78303, 0, -0.234942)
+skeleton = NodePath("../start voiture")
+
+[node name="start line" parent="." instance=ExtResource("2_vaivo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.44643)

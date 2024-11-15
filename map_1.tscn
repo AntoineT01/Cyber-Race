@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpsif1d7raor4"]
+[gd_scene load_steps=7 format=3 uid="uid://dpsif1d7raor4"]
 
 [ext_resource type="PackedScene" uid="uid://c82m1ad7xyuia" path="res://assets/map/route droite.tscn" id="1_uqve0"]
 [ext_resource type="PackedScene" uid="uid://ddstlqtrj64qe" path="res://assets/map/virage ligne droite.tscn" id="2_agu7q"]
 [ext_resource type="PackedScene" uid="uid://ce7oagguvop00" path="res://assets/map/virage ligne gauche.tscn" id="3_holr7"]
 [ext_resource type="PackedScene" uid="uid://cnce6shn1r8xb" path="res://assets/map/route droite avec trait .tscn" id="4_4jc7c"]
 [ext_resource type="PackedScene" uid="uid://dqbrqm7kcmq8t" path="res://assets/map/virage.tscn" id="5_deuby"]
+[ext_resource type="PackedScene" uid="uid://b6xufot4sg2a6" path="res://assets/map/starting_line.tscn" id="6_l662x"]
 
 [node name="map 1" type="Node3D"]
 
@@ -47,7 +48,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 100, 0
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 100, 0, 20)
 
 [node name="RouteDroite4" parent="." instance=ExtResource("1_uqve0")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 100, 0, 0)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 120, 0, 0)
 
 [node name="RouteDroite5" parent="." instance=ExtResource("1_uqve0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, 0, -20)
@@ -66,3 +67,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80, 0,
 
 [node name="RouteDroite9" parent="." instance=ExtResource("1_uqve0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 0, -20)
+
+[node name="Starting Line" parent="." instance=ExtResource("6_l662x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)

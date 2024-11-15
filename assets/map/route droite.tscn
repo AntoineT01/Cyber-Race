@@ -59,14 +59,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_road")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road"]
 shape = SubResource("BoxShape3D_road")
 
-[node name="LeftLine" type="MeshInstance3D" parent="Road"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, 0.00999999, 0)
+[node name="LeftLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, 0.012, 0)
 mesh = SubResource("BoxMesh_line")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_line")
 
-[node name="RightLine" type="MeshInstance3D" parent="Road"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 0.00999999, 0)
+[node name="RightLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 0.012, 0)
 mesh = SubResource("BoxMesh_line")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_line")

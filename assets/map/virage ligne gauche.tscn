@@ -1,4 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://ce7oagguvop00"]
+[gd_scene load_steps=15 format=3 uid="uid://ce7oagguvop00"]
+
+[ext_resource type="PackedScene" uid="uid://cmw5nwj5n0caw" path="res://assets/map/objet/tree.tscn" id="2_o4m23"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_n3q75"]
 size = Vector3(20, 1, 20)
@@ -127,3 +129,33 @@ shape = SubResource("BoxShape3D_6ismh")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Road"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 shape = SubResource("BoxShape3D_6ismh")
+
+[node name="Arbres" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Tree" parent="Arbres" instance=ExtResource("2_o4m23")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -8)
+
+[node name="Tree3" parent="Arbres" instance=ExtResource("2_o4m23")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -8)
+
+[node name="Tree2" parent="Arbres" instance=ExtResource("2_o4m23")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -8)
+
+[node name="Tree4" parent="Arbres" instance=ExtResource("2_o4m23")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, -8)
+
+[node name="Tree5" parent="Arbres" instance=ExtResource("2_o4m23")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -8)
+
+[node name="Tree6" parent="Arbres" instance=ExtResource("2_o4m23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)
+
+[node name="Tree7" parent="Arbres" instance=ExtResource("2_o4m23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 4)
+
+[node name="Tree8" parent="Arbres" instance=ExtResource("2_o4m23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="Tree9" parent="Arbres" instance=ExtResource("2_o4m23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4)

@@ -13,7 +13,7 @@ signal respawn_timer_cancelled(player_id: int)
 @export var player_id: int = 1  # Identifiant unique pour chaque joueur
 
 @export var max_engine_force = 300.0
-@export var max_brake_force = 10.0
+@export var max_brake_force = 20.0
 @export var max_steer_angle = 0.5
 
 @export var steering_control = "steering"
@@ -34,6 +34,11 @@ signal respawn_timer_cancelled(player_id: int)
 @onready var left_brake_light = $LeftBrakeLight
 @onready var right_brake_light = $RightBrakeLight
 
+@export var wheel_radius: float = 0.45  # Rayon des roues
+@export var suspension_travel: float = 0.3  # Distance de débattement de la suspension
+@export var suspension_stiffness: float = 50.0  # Raideur de la suspension
+@export var wheel_friction_slip: float = 5 # Adhérence des roues
+
 var last_collision_force = Vector3.ZERO
 var score = 0
 var brake_light_material: StandardMaterial3D
@@ -48,10 +53,23 @@ const MAX_ANGULAR_VELOCITY = 1.0  # Radians par seconde
 
 func _ready():
 	add_to_group("players")
+	setup_wheels()
 	brake_light_material = left_taillight.get_surface_override_material(0).duplicate()
 	left_taillight.set_surface_override_material(0, brake_light_material)
 	right_taillight.set_surface_override_material(0, brake_light_material)
 	set_brake_lights(false)
+
+func setup_wheels():
+	var wheels = [$FrontLeftWheel, $FrontRightWheel, $RearLeftWheel, $RearRightWheel]
+
+	for wheel in wheels:
+		wheel.wheel_radius = wheel_radius
+		wheel.suspension_travel = suspension_travel
+		wheel.suspension_stiffness = suspension_stiffness
+		wheel.wheel_friction_slip = wheel_friction_slip
+
+		# Augmenter la force de la suspension pour mieux absorber les chocs
+		wheel.suspension_max_force = 6000
 
 func _physics_process(_delta):
 	var throttle = Input.get_action_strength(throttle_control)
