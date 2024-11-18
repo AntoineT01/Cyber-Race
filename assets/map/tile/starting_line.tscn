@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://b6xufot4sg2a6"]
 
-[ext_resource type="PackedScene" uid="uid://dwv1k3n7v5kp5" path="res://assets/map/objet/start_voiture.tscn" id="1_r2ae3"]
-[ext_resource type="PackedScene" uid="uid://cpbskkryf43lr" path="res://assets/map/objet/start_line.tscn" id="2_vaivo"]
+[ext_resource type="PackedScene" uid="uid://dwv1k3n7v5kp5" path="res://assets/map/objet/start_voiture.tscn" id="1_vasbg"]
+[ext_resource type="PackedScene" uid="uid://cpbskkryf43lr" path="res://assets/map/objet/start_line.tscn" id="2_slrxs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_o6gji"]
 size = Vector3(20, 1, 20)
@@ -72,20 +72,20 @@ mesh = SubResource("BoxMesh_owmxo")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_urgn4")
 
-[node name="start voiture" parent="." instance=ExtResource("1_r2ae3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56277, 0, 2.57333)
+[node name="start voiture" parent="." instance=ExtResource("1_vasbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87647, 0, 1.18783)
 
-[node name="start voiture2" parent="." instance=ExtResource("1_r2ae3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89797, 0, 5.58153)
+[node name="start voiture2" parent="." instance=ExtResource("1_vasbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58427, 0, 4.19603)
 skeleton = NodePath("../start voiture")
 
-[node name="start voiture3" parent="." instance=ExtResource("1_r2ae3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48169, 0, -2.28105)
+[node name="start voiture3" parent="." instance=ExtResource("1_vasbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79539, 0, -6.64668)
 skeleton = NodePath("../start voiture")
 
-[node name="start voiture4" parent="." instance=ExtResource("1_r2ae3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78303, 0, -0.234942)
+[node name="start voiture4" parent="." instance=ExtResource("1_vasbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46933, 0, -4.60057)
 skeleton = NodePath("../start voiture")
 
-[node name="start line" parent="." instance=ExtResource("2_vaivo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.44643)
+[node name="start line" parent="." instance=ExtResource("2_slrxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104565, 0, -8.00167)

@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scripts/race_manager.gd" id="6_uc11u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0bybj"]
-size = Vector3(20.4999, 8.87167, 1)
+size = Vector3(22, 10, 1)
 
 [node name="Race" type="Node3D"]
 script = ExtResource("1_d22vc")
@@ -19,7 +19,7 @@ script = ExtResource("1_d22vc")
 [node name="Utilitaries" parent="." instance=ExtResource("2_dxe6c")]
 
 [node name="Voiture1" parent="." groups=["cars"] instance=ExtResource("4_km4b7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48628, 2.428, -21.6088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.3, 1.5)
 collision_layer = 1
 collision_mask = 1
 mass = 40.0
@@ -28,10 +28,10 @@ steering_control = "steering_1"
 throttle_control = "throttle_1"
 brake_control = "brake_1"
 reverse_control = "reverse_1"
-respawn_position = Vector3(-2.486, 2, -21.609)
+respawn_position = Vector3(-2.5, 1, 1.5)
 
 [node name="Voiture2" parent="." groups=["cars"] instance=ExtResource("3_bbyx0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.469, 2, -21)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8, 0.3, 3)
 collision_layer = 1
 collision_mask = 1
 mass = 40.0
@@ -41,32 +41,30 @@ steering_control = "steering_2"
 throttle_control = "throttle_2"
 brake_control = "brake_2"
 reverse_control = "reverse_2"
-respawn_position = Vector3(3.469, 2, -21)
+respawn_position = Vector3(2.8, 2, 3)
 
 [node name="Checkpoints" type="Node3D" parent="."]
 
 [node name="CheckPoint1" type="Area3D" parent="Checkpoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 script = ExtResource("5_1knpm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/CheckPoint1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.296814, 3.05597, 0)
 shape = SubResource("BoxShape3D_0bybj")
 
 [node name="CheckPoint2" type="Area3D" parent="Checkpoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.796, 0, 39.9291)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 78, 0, 60)
 script = ExtResource("5_1knpm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/CheckPoint2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.296814, 3.05597, 0)
 shape = SubResource("BoxShape3D_0bybj")
 
 [node name="CheckPoint3" type="Area3D" parent="Checkpoints"]
-transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 32.1289, 0, -19.0761)
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 50, 0, -20)
 script = ExtResource("5_1knpm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/CheckPoint3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.296814, 3.05597, 0)
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 shape = SubResource("BoxShape3D_0bybj")
 
 [node name="RaceManager" type="Node" parent="."]
