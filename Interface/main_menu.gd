@@ -1,13 +1,17 @@
-extends Control  # Le script est attaché au root node de la scène PauseMenu
+extends Control  # Le script est attaché au root node de la scène MainMenu
 
 # On récupère les boutons
-@onready var piece_race_button = $CenterContainer/VBoxContainer/PiecesRaceButton
-@onready var race_button = $CenterContainer/VBoxContainer/RaceButton
-@onready var settings_button = $CenterContainer/VBoxContainer/SettingsButton
-@onready var quit_button = $CenterContainer/VBoxContainer/QuitButton
+@onready var piece_race_button = $Node/CenterContainer/VBoxContainer/PiecesRaceButton
+@onready var race_button = $Node/CenterContainer/VBoxContainer/RaceButton
+@onready var settings_button = $Node/CenterContainer/VBoxContainer/SettingsButton
+@onready var quit_button = $Node/CenterContainer/VBoxContainer/QuitButton
+
+@onready var menu = $Node
+
+@onready var level_selection_race = $LevelSelectionRace
+@onready var level_selection_piece_race = $LevelSelectionPieceRace
 
 func _ready() -> void:
-
 	# Continue à fonctionner même en pause
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -45,14 +49,16 @@ func resume_game():
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()  # Quitte le jeu
 
-
+# Bouton "Pieces Race"
 func _on_pieces_race_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://piece_race.tscn")
+	menu.visible = false
+	level_selection_piece_race.visible = true
 
-
+# Bouton "Race"
 func _on_race_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://main_scenes/race.tscn")
+	menu.visible = false
+	level_selection_race.visible = true
 
-
+# Bouton "Settings"
 func _on_settings_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Interface//settings_menu.tscn")
+	get_tree().change_scene_to_file("res://Interface/settings_menu.tscn")
