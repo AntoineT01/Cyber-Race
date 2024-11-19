@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccbbtu82u35lu"]
+[gd_scene load_steps=8 format=3 uid="uid://ccbbtu82u35lu"]
 
-[ext_resource type="PackedScene" uid="uid://b6xufot4sg2a6" path="res://assets/map/tile/starting_line.tscn" id="1_g6gxy"]
-[ext_resource type="PackedScene" uid="uid://c82m1ad7xyuia" path="res://assets/map/tile/route droite.tscn" id="2_cpprr"]
-[ext_resource type="PackedScene" uid="uid://ddstlqtrj64qe" path="res://assets/map/tile/virage ligne droite.tscn" id="3_vex26"]
-[ext_resource type="PackedScene" uid="uid://ce7oagguvop00" path="res://assets/map/tile/virage ligne gauche.tscn" id="4_lk4xo"]
-[ext_resource type="PackedScene" uid="uid://cfdotnbbxsqgi" path="res://assets/map/tile/cross_road.tscn" id="5_6jyvs"]
-[ext_resource type="PackedScene" uid="uid://dqbrqm7kcmq8t" path="res://assets/map/tile/virage.tscn" id="6_in7iw"]
+[ext_resource type="PackedScene" uid="uid://b6xufot4sg2a6" path="res://assets/map/tile/herbe/starting_line.tscn" id="1_g6gxy"]
+[ext_resource type="PackedScene" uid="uid://c82m1ad7xyuia" path="res://assets/map/tile/herbe/route droite.tscn" id="2_cpprr"]
+[ext_resource type="PackedScene" uid="uid://ddstlqtrj64qe" path="res://assets/map/tile/herbe/virage ligne droite.tscn" id="3_vex26"]
+[ext_resource type="PackedScene" uid="uid://ce7oagguvop00" path="res://assets/map/tile/herbe/virage ligne gauche.tscn" id="4_lk4xo"]
+[ext_resource type="PackedScene" uid="uid://cfdotnbbxsqgi" path="res://assets/map/tile/herbe/cross_road.tscn" id="5_6jyvs"]
+[ext_resource type="PackedScene" uid="uid://dqbrqm7kcmq8t" path="res://assets/map/tile/herbe/virage.tscn" id="6_in7iw"]
+[ext_resource type="PackedScene" uid="uid://dhyx0ncpvossk" path="res://assets/map/tile/herbe/ramp.tscn" id="7_v8bg8"]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node3D"]
 
 [node name="Starting Line" parent="." instance=ExtResource("1_g6gxy")]
 
@@ -69,43 +70,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -80)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -60)
 
 [node name="RouteDroite11" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 264, 0, -29)
 
 [node name="VirageLigneGauche2" parent="." instance=ExtResource("4_lk4xo")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 120, 0, -20)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 264, 0, -9)
 
 [node name="VirageLigneGauche3" parent="." instance=ExtResource("4_lk4xo")]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 100, 0, -20)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 244, 0, -9)
 
 [node name="VirageLigneGauche4" parent="." instance=ExtResource("4_lk4xo")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, 0, -40)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 204, 0, -29)
 
 [node name="RouteDroite12" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 5, -20)
 
 [node name="RouteDroite13" parent="." instance=ExtResource("2_cpprr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 0, -140)
 
 [node name="RouteDroite14" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 80, 0, -40)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 224, 0, -29)
 
 [node name="RouteDroite15" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 5, 0)
 
 [node name="RouteDroite16" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 5, 20)
 
 [node name="RouteDroite17" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 5, 40)
 
 [node name="RouteDroite18" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 60)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 5, 60)
 
 [node name="RouteDroite19" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 5, 80)
 
 [node name="VirageLigneGauche5" parent="." instance=ExtResource("4_lk4xo")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60, 0, 100)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 120, 5, 100)
 
 [node name="VirageLigneGauche6" parent="." instance=ExtResource("4_lk4xo")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 0, 100)
@@ -123,7 +124,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0,
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.13163e-13, 0, 60)
 
 [node name="VirageLigneGauche8" parent="." instance=ExtResource("4_lk4xo")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 100, 0, -40)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 244, 0, -29)
 
 [node name="VirageLigneGauche9" parent="." instance=ExtResource("4_lk4xo")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -20, 0, 60)
@@ -136,3 +137,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20)
 
 [node name="VirageLigneGauche10" parent="." instance=ExtResource("4_lk4xo")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 20)
+
+[node name="RouteDroite24" parent="." instance=ExtResource("7_v8bg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 3, -40)
+
+[node name="RouteDroite25" parent="." instance=ExtResource("7_v8bg8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60, 3, 100)
+
+[node name="RouteDroite26" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 5, 100)
+
+[node name="RouteDroite27" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80, 5, 100)

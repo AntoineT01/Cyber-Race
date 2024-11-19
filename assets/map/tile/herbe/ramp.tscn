@@ -7,28 +7,27 @@ size = Vector3(20, 5, 20)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_earth"]
 albedo_color = Color(0.4, 0.2, 0, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_a20vt"]
+size = Vector3(20, 0.2, 20.801)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_grass"]
-size = Vector2(20, 20)
+size = Vector2(20, 20.7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grass"]
 albedo_color = Color(0.1, 0.5, 0.1, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_line"]
+size = Vector3(0.2, 0, 20.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_line"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_road"]
-size = Vector2(12, 20)
+size = Vector2(12, 20.7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_road"]
 albedo_color = Color(0.2, 0.2, 0.2, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_road"]
-size = Vector3(12, 0, 20)
-
-[sub_resource type="BoxMesh" id="BoxMesh_line"]
-size = Vector3(0.2, 0, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_line"]
-
 [node name="RouteDroite" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
 metadata/_edit_group_ = true
 
 [node name="EarthBase" type="StaticBody3D" parent="."]
@@ -40,32 +39,28 @@ mesh = SubResource("PrismMesh_dwtt3")
 surface_material_override/0 = SubResource("StandardMaterial3D_earth")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EarthBase"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.948, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.970528, 0.24099, 0, -0.24099, 0.970528, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_a20vt")
 
 [node name="Grass" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+transform = Transform3D(1, 0, 0, 0, 0.970528, 0.24099, 0, -0.24099, 0.970528, 0, -0.48, 0)
 mesh = SubResource("PlaneMesh_grass")
 surface_material_override/0 = SubResource("StandardMaterial3D_grass")
 
-[node name="Road" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
-
-[node name="RoadGround" type="MeshInstance3D" parent="Road"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 0)
-mesh = SubResource("PlaneMesh_road")
-surface_material_override/0 = SubResource("StandardMaterial3D_road")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Road"]
-shape = SubResource("BoxShape3D_road")
-
 [node name="LeftLine" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, 0.012, 0)
+transform = Transform3D(1, 0, 0, 0, 0.970528, 0.24099, 0, -0.24099, 0.970528, -5.8, -0.478, 0)
 mesh = SubResource("BoxMesh_line")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_line")
 
 [node name="RightLine" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 0.012, 0)
+transform = Transform3D(1, 0, 0, 0, 0.970528, 0.24099, 0, -0.24099, 0.970528, 5.8, -0.478, 0)
 mesh = SubResource("BoxMesh_line")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_line")
+
+[node name="RoadGround" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.970528, 0.24099, 0, -0.24099, 0.970528, 0, -0.479, 0)
+mesh = SubResource("PlaneMesh_road")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_road")

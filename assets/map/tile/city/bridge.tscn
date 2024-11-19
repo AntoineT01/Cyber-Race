@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://vs2b43kt071p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uovc7"]
+size = Vector3(18, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptb8m"]
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjmf8"]
+size = Vector3(14, 1, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bwsap"]
+size = Vector2(14, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nu2k6"]
+size = Vector3(18, 0, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fxq8b"]
+size = Vector3(0.2, 0, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p64rf"]
+
+[node name="Bridge" type="Node3D"]
+
+[node name="EarthBase" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EarthBase"]
+mesh = SubResource("BoxMesh_uovc7")
+surface_material_override/0 = SubResource("StandardMaterial3D_ptb8m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthBase"]
+shape = SubResource("BoxShape3D_wjmf8")
+
+[node name="Road" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+
+[node name="RoadGround" type="MeshInstance3D" parent="Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 0)
+mesh = SubResource("PlaneMesh_bwsap")
+surface_material_override/0 = SubResource("StandardMaterial3D_ptb8m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Road"]
+shape = SubResource("BoxShape3D_nu2k6")
+
+[node name="LeftLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8, 0.012, 0)
+mesh = SubResource("BoxMesh_fxq8b")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_p64rf")
+
+[node name="RightLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.012, 0)
+mesh = SubResource("BoxMesh_fxq8b")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_p64rf")

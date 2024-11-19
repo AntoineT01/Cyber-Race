@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://drp318kjeo3f4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xc3tw"]
+size = Vector3(20, 5, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gsen7"]
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5tt8o"]
+size = Vector3(20, 5, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cjyav"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lywwi"]
+albedo_color = Color(0.1, 0.5, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c7rj7"]
+size = Vector3(0.2, 0, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wo4m1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v81xe"]
+size = Vector2(18, 20)
+
+[node name="CityHigh-road" type="Node3D"]
+
+[node name="EarthBase" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EarthBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("BoxMesh_xc3tw")
+surface_material_override/0 = SubResource("StandardMaterial3D_gsen7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_5tt8o")
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+mesh = SubResource("PlaneMesh_cjyav")
+surface_material_override/0 = SubResource("StandardMaterial3D_lywwi")
+
+[node name="LeftLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8, 0.012, 0)
+mesh = SubResource("BoxMesh_c7rj7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_wo4m1")
+
+[node name="RightLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.012, 0)
+mesh = SubResource("BoxMesh_c7rj7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_wo4m1")
+
+[node name="RoadGround" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00199994, 0)
+mesh = SubResource("PlaneMesh_v81xe")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_gsen7")

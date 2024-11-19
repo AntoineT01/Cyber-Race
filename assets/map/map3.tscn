@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0bbapyptotjg"]
+
+[ext_resource type="PackedScene" uid="uid://cyic2725cwu1o" path="res://assets/map/tile-group/pyramide.tscn" id="1_viyk1"]
+[ext_resource type="PackedScene" uid="uid://vs2b43kt071p" path="res://assets/map/tile/city/bridge.tscn" id="2_cadpd"]
+
+[node name="Map3" type="Node3D"]
+
+[node name="pyramide" parent="." instance=ExtResource("1_viyk1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 0, -21)
+
+[node name="pyramide2" parent="." instance=ExtResource("1_viyk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103, 0, -1)
+
+[node name="Bridge" parent="." instance=ExtResource("2_cadpd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23, 7, 7)
+
+[node name="pyramide3" parent="." instance=ExtResource("1_viyk1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -57, 0, 119)
+
+[node name="Bridge2" parent="." instance=ExtResource("2_cadpd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23, 7, 111)
+
+[node name="Bridge3" parent="." instance=ExtResource("2_cadpd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 7, 59)
+
+[node name="Bridge4" parent="." instance=ExtResource("2_cadpd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 7, 59)
+
+[node name="pyramide4" parent="." instance=ExtResource("1_viyk1")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 83, 0, 139)

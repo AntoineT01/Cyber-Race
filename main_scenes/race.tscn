@@ -1,20 +1,18 @@
 [gd_scene load_steps=9 format=3 uid="uid://h1ai5nbcf8nm"]
 
 [ext_resource type="Script" path="res://main_scenes/race.gd" id="1_d22vc"]
-[ext_resource type="PackedScene" uid="uid://dpsif1d7raor4" path="res://map_1.tscn" id="1_y1r71"]
 [ext_resource type="PackedScene" uid="uid://b6jsyexb5fyy7" path="res://utils/utilitaries.tscn" id="2_dxe6c"]
 [ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://assets/voiture/cybertruck.tscn" id="3_bbyx0"]
 [ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://assets/voiture/voiture.tscn" id="4_km4b7"]
 [ext_resource type="Script" path="res://scripts/checkpoint.gd" id="5_1knpm"]
 [ext_resource type="Script" path="res://scripts/race_manager.gd" id="6_uc11u"]
+[ext_resource type="PackedScene" uid="uid://ccbbtu82u35lu" path="res://assets/map/map2.tscn" id="7_bbfnp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0bybj"]
 size = Vector3(22, 10, 1)
 
 [node name="Race" type="Node3D"]
 script = ExtResource("1_d22vc")
-
-[node name="map 1" parent="." instance=ExtResource("1_y1r71")]
 
 [node name="Utilitaries" parent="." instance=ExtResource("2_dxe6c")]
 
@@ -69,3 +67,5 @@ shape = SubResource("BoxShape3D_0bybj")
 
 [node name="RaceManager" type="Node" parent="."]
 script = ExtResource("6_uc11u")
+
+[node name="Node" parent="." instance=ExtResource("7_bbfnp")]

@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://beo12vhaoj6iw"]
+
+[ext_resource type="PackedScene" uid="uid://dluh504876b1" path="res://assets/map/objet/little_line_angle.tscn" id="1_i8vw3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ydiq8"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tisvf"]
+albedo_color = Color(0.4, 0.2, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_andro"]
+margin = 0.0
+size = Vector3(20, 1, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tdnxl"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m312l"]
+albedo_color = Color(0.1, 0.5, 0.1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tx7nl"]
+size = Vector2(18, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_st8u0"]
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2vx2h"]
+size = Vector3(0.2, 0, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w6w3c"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="EarthBase" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EarthBase"]
+mesh = SubResource("BoxMesh_ydiq8")
+surface_material_override/0 = SubResource("StandardMaterial3D_tisvf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthBase"]
+shape = SubResource("BoxShape3D_andro")
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+mesh = SubResource("PlaneMesh_tdnxl")
+surface_material_override/0 = SubResource("StandardMaterial3D_m312l")
+
+[node name="Road" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+
+[node name="RoadGround2" type="MeshInstance3D" parent="Road"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 0)
+mesh = SubResource("PlaneMesh_tx7nl")
+surface_material_override/0 = SubResource("StandardMaterial3D_st8u0")
+
+[node name="RoadGround3" type="MeshInstance3D" parent="Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+mesh = SubResource("PlaneMesh_tx7nl")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_st8u0")
+
+[node name="RoadGround4" type="MeshInstance3D" parent="Road"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
+mesh = SubResource("PlaneMesh_tx7nl")
+skeleton = NodePath("../RoadGround3")
+surface_material_override/0 = SubResource("StandardMaterial3D_st8u0")
+
+[node name="LittleLineAngle" parent="Road" instance=ExtResource("1_i8vw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.002, 9.35)
+
+[node name="LittleLineAngle" parent="." instance=ExtResource("1_i8vw3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.35, 0.002, 8.8)
+metadata/_edit_group_ = true
+
+[node name="LeftLine" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.93715e-07, 0.012, -8.8)
+mesh = SubResource("BoxMesh_2vx2h")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_w6w3c")
