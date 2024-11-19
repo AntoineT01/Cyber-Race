@@ -25,7 +25,7 @@ var total_pieces: int = 0
 # Variables pour définir l'objectif de victoire
 enum VictoryType { PIECES, LAPS }
 var victory_type: VictoryType = VictoryType.PIECES
-var victory_target: int = 10  # Par défaut, 10 pièces
+var victory_target: int = 10
 
 # Variable pour empêcher les victoires multiples
 var game_over: bool = false

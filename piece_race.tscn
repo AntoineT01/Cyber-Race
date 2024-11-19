@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6hcauhmhu5ju"]
+[gd_scene load_steps=7 format=3 uid="uid://b6hcauhmhu5ju"]
 
 [ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://assets/voiture/voiture.tscn" id="1_abcde"]
+[ext_resource type="Script" path="res://main_scenes/piece_race.gd" id="1_c2fx6"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://assets/piece/piece.tscn" id="3_klmno"]
 [ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://assets/voiture/cybertruck.tscn" id="4_buaph"]
 [ext_resource type="PackedScene" uid="uid://b6jsyexb5fyy7" path="res://utils/utilitaries.tscn" id="4_yxah2"]
 [ext_resource type="PackedScene" uid="uid://d0bbapyptotjg" path="res://assets/map/map3.tscn" id="5_kpno8"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_c2fx6")
 
 [node name="Utilitaries" parent="." instance=ExtResource("4_yxah2")]
 
