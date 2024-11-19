@@ -1,6 +1,6 @@
 extends VehicleBody3D
 
-# Définition des signaux
+# Définition des signaux (optionnellement, vous pouvez les supprimer si non utilisés)
 @warning_ignore("unused_signal")
 signal respawn_timer_started(player_id: int, time_left: float)
 @warning_ignore("unused_signal")
@@ -19,7 +19,7 @@ signal respawn_timer_cancelled(player_id: int)
 @export var steering_control = "steering"
 @export var throttle_control = "throttle"
 @export var brake_control = "brake"
-@export var reverse_control = "reverse"  # Nouveau contrôle pour la marche arrière
+@export var reverse_control = "reverse"  # Contrôle pour la marche arrière
 
 @export var collision_push_force = 50.0
 
@@ -37,7 +37,7 @@ signal respawn_timer_cancelled(player_id: int)
 @export var wheel_radius: float = 0.45  # Rayon des roues
 @export var suspension_travel: float = 0.3  # Distance de débattement de la suspension
 @export var suspension_stiffness: float = 50.0  # Raideur de la suspension
-@export var wheel_friction_slip: float = 5 # Adhérence des roues
+@export var wheel_friction_slip: float = 5  # Adhérence des roues
 
 var last_collision_force = Vector3.ZERO
 var score = 0
@@ -73,11 +73,11 @@ func setup_wheels():
 
 func _physics_process(_delta):
 	var throttle = Input.get_action_strength(throttle_control)
-	var reverse = Input.get_action_strength(reverse_control)  # Nouvelle entrée pour la marche arrière
+	var reverse = Input.get_action_strength(reverse_control)  # Entrée pour la marche arrière
 	var brake_strength = Input.get_action_strength(brake_control)
 	var steer_left = Input.get_action_strength("left_" + steering_control)
 	var steer_right = Input.get_action_strength("right_" + steering_control)
-
+	
 	# Calcul de la force du moteur en tenant compte de la marche avant et arrière
 	engine_force = (throttle - reverse) * max_engine_force
 	brake = brake_strength * max_brake_force
@@ -110,6 +110,23 @@ func _physics_process(_delta):
 			is_respawn_timer_active = false
 			emit_signal("respawn_timer_cancelled", player_id)  # Émettre le signal lorsque le timer est annulé
 		upside_down_timer = 0.0
+
+	# **Nouvelle Fonctionnalité : Respawn via une Touche**
+	handle_manual_respawn()
+
+func handle_manual_respawn():
+	var respawn_action = ""
+	match player_id:
+		1:
+			respawn_action = "respawn_player1"
+		2:
+			respawn_action = "respawn_player2"
+		_:
+			respawn_action = "respawn"  # Action générique si nécessaire
+
+	if Input.is_action_just_pressed(respawn_action):
+		print("Respawn manuelle pour le Joueur ", player_id)
+		respawn()
 
 func is_moving_little() -> bool:
 	return linear_velocity.length() < MAX_LINEAR_VELOCITY and angular_velocity.length() < MAX_ANGULAR_VELOCITY

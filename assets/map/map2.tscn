@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccbbtu82u35lu"]
+[gd_scene load_steps=10 format=3 uid="uid://ccbbtu82u35lu"]
 
 [ext_resource type="PackedScene" uid="uid://b6xufot4sg2a6" path="res://assets/map/tile/herbe/starting_line.tscn" id="1_g6gxy"]
 [ext_resource type="PackedScene" uid="uid://c82m1ad7xyuia" path="res://assets/map/tile/herbe/route droite.tscn" id="2_cpprr"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cfdotnbbxsqgi" path="res://assets/map/tile/herbe/cross_road.tscn" id="5_6jyvs"]
 [ext_resource type="PackedScene" uid="uid://dqbrqm7kcmq8t" path="res://assets/map/tile/herbe/virage.tscn" id="6_in7iw"]
 [ext_resource type="PackedScene" uid="uid://dhyx0ncpvossk" path="res://assets/map/tile/herbe/ramp.tscn" id="7_v8bg8"]
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="8_6oc5u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nt142"]
+size = Vector3(22, 10, 1)
 
 [node name="Node" type="Node3D"]
 
@@ -149,3 +153,27 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 5
 
 [node name="RouteDroite27" parent="." instance=ExtResource("2_cpprr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80, 5, 100)
+
+[node name="Checkpoints" type="Node3D" parent="."]
+
+[node name="CheckPoint1" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71768, 3.58786, 89.8818)
+script = ExtResource("8_6oc5u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/CheckPoint1"]
+shape = SubResource("BoxShape3D_nt142")
+
+[node name="CheckPoint2" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 120.219, 8.68957, -12.5821)
+script = ExtResource("8_6oc5u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/CheckPoint2"]
+shape = SubResource("BoxShape3D_nt142")
+
+[node name="CheckPoint3" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -0.190989, 1.99085, 7.6053)
+script = ExtResource("8_6oc5u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/CheckPoint3"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
+shape = SubResource("BoxShape3D_nt142")

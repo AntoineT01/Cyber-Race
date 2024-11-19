@@ -10,7 +10,7 @@ var current_checkpoint = {}
 func _ready():
 	print("RaceManager ready")
 	# Trouver le nœud Checkpoints
-	var checkpoints_node = get_parent().get_node("Checkpoints") # Ajustez le chemin selon votre hiérarchie
+	var checkpoints_node = get_parent().get_node("Node/Checkpoints") # Ajustez le chemin selon votre hiérarchie
 	if not checkpoints_node:
 		print("Checkpoints node not found!")
 		return
