@@ -14,23 +14,53 @@ script = ExtResource("1_c2fx6")
 
 [node name="Pieces" type="Node3D" parent="."]
 
+[node name="Piece1" parent="Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.57799, 30)
+
+[node name="Piece2" parent="Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8275, 2.74114, 24.4324)
+
+[node name="Piece3" parent="Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98302, 2.44695, 105.652)
+
 [node name="Piece4" parent="Pieces" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696578, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.251, 2.50677, 26.052)
+
+[node name="Piece5" parent="Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.647, 2.74426, 144.381)
 
 [node name="Piece6" parent="Pieces" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3923, 0.696578, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5285, 2.69658, 147)
 
 [node name="Piece7" parent="Pieces" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6188, 0.696578, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.8998, 2.69658, 147)
 
 [node name="Piece8" parent="Pieces" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6188, 0.696578, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.08, 2.69658, 147)
 
 [node name="Piece9" parent="Pieces" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.8063, 0.696578, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.7686, 8.1828, 139.588)
 
 [node name="Piece10" parent="Pieces" instance=ExtResource("3_klmno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4715, 0.696578, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.045, -2.05849, 5.94534)
+
+[node name="Piece11" parent="Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.045, 3.70183, 64.8795)
+
+[node name="Piece12" parent="Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.812, 8.70374, 64.8795)
+
+[node name="Piece13" parent="Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.812, 8.70374, 107.727)
+
+[node name="Piece14" parent="Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.918, 8.70374, 107.727)
+
+[node name="Piece15" parent="Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.918, 8.70374, 64.8326)
+
+[node name="Piece16" parent="Pieces" instance=ExtResource("3_klmno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.918, 8.70374, 64.8326)
 
 [node name="Voiture1" parent="." groups=["cars"] instance=ExtResource("1_abcde")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.3, 1.5)
