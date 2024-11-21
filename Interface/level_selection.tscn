@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0cn7jb34erii"]
+[gd_scene load_steps=2 format=3 uid="uid://d0cn7jb34erii"]
 
 [ext_resource type="Script" path="res://Interface/level_selection.gd" id="1_n4g8w"]
-[ext_resource type="Texture2D" uid="uid://cm1ip076ytvp4" path="res://assets/screen_accueil-blured.png" id="2_63e44"]
 
 [node name="LevelSelection" type="Control"]
 layout_mode = 3
@@ -11,14 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n4g8w")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -2
-
-[node name="BackgroundImage" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_63e44")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
