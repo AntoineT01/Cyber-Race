@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dq2j3uf6kmbrr" path="res://assets/map/tile/city/city_cross-road.tscn" id="4_ccnp0"]
 [ext_resource type="PackedScene" uid="uid://vs2b43kt071p" path="res://assets/map/tile/city/bridge.tscn" id="5_f771f"]
 [ext_resource type="PackedScene" uid="uid://beo12vhaoj6iw" path="res://assets/map/tile/city/city_T-road.tscn" id="6_ujtla"]
-[ext_resource type="PackedScene" uid="uid://hfy4hgenjycf" path="res://assets/map/tile/herbe/Grass.tscn" id="7_7bbt0"]
+[ext_resource type="PackedScene" uid="uid://hfy4hgenjycf" path="res://assets/map/tile/herbe/grass.tscn" id="7_7bbt0"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://assets/piece/piece.tscn" id="8_c2vp7"]
 
 [node name="pyramide" type="Node3D"]
