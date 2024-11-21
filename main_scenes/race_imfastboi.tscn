@@ -39,6 +39,5 @@ respawn_position = Vector3(2.8, 2, 3)
 
 [node name="RaceManager" type="Node" parent="."]
 script = ExtResource("5_11rf2")
-total_laps = 1
 
 [node name="Node" parent="." instance=ExtResource("6_6kdsc")]
