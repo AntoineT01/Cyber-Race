@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnvha6who25l8"]
 
 [ext_resource type="Script" path="res://Interface/main_menu.gd" id="1_utu3e"]
-[ext_resource type="PackedScene" uid="uid://drv13t1lrwqrd" path="res://Interface/level_selection.tscn" id="2_4pe3n"]
+[ext_resource type="PackedScene" uid="uid://d0cn7jb34erii" path="res://Interface/level_selection.tscn" id="2_4pe3n"]
 [ext_resource type="Texture2D" uid="uid://cm1ip076ytvp4" path="res://assets/screen_accueil-blured.png" id="2_5v4oc"]
 
 [node name="MainMenu" type="Control"]
@@ -16,7 +16,7 @@ script = ExtResource("1_utu3e")
 [node name="LevelSelectionPieceRace" parent="." instance=ExtResource("2_4pe3n")]
 visible = false
 layout_mode = 1
-map1 = "res://piece_race.tscn"
+map1 = "res://main_scenes/piece_race.tscn"
 
 [node name="Node" type="Control" parent="."]
 layout_mode = 1

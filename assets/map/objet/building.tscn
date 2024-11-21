@@ -1,14 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfvom0jsc88ry"]
+[gd_scene load_steps=10 format=3 uid="uid://cfvom0jsc88ry"]
 
 [ext_resource type="Texture2D" uid="uid://du6ayfarxj4eq" path="res://assets/texture/facade-/albedo.png" id="1_ecapw"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_main"]
-size = Vector3(10, 12, 8)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3sxy"]
-albedo_texture = ExtResource("1_ecapw")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_window"]
 size = Vector3(2, 2, 0.5)
@@ -17,6 +9,9 @@ size = Vector3(2, 2, 0.5)
 albedo_color = Color(0.529, 0.808, 0.922, 1)
 metallic = 0.8
 roughness = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_main"]
+size = Vector3(10, 12, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5yq6"]
 albedo_color = Color(0.108217, 0.0550111, 0.0144986, 1)
@@ -29,12 +24,15 @@ albedo_color = Color(0.4, 0.26, 0.13, 1)
 metallic = 0.2
 roughness = 0.5
 
-[node name="Building" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3sxy"]
+albedo_texture = ExtResource("1_ecapw")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
 
-[node name="MainStructure" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
-mesh = SubResource("BoxMesh_main")
-surface_material_override/0 = SubResource("StandardMaterial3D_e3sxy")
+[sub_resource type="BoxShape3D" id="BoxShape3D_ffywn"]
+size = Vector3(10, 12, 8)
+
+[node name="Building" type="Node3D"]
 
 [node name="windows1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 3.9)
@@ -70,3 +68,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_door")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 10, 3.9)
 mesh = SubResource("BoxMesh_window")
 surface_material_override/0 = SubResource("StandardMaterial3D_window")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MainStructure" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("BoxMesh_main")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_e3sxy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("BoxShape3D_ffywn")

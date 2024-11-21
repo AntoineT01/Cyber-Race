@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyic2725cwu1o"]
+[gd_scene load_steps=9 format=3 uid="uid://cyic2725cwu1o"]
 
 [ext_resource type="PackedScene" uid="uid://dndvwhv50oi3x" path="res://assets/map/tile/city/city_ramp.tscn" id="1_raidm"]
 [ext_resource type="PackedScene" uid="uid://drp318kjeo3f4" path="res://assets/map/tile/city/city_high-road.tscn" id="2_m21w0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://vs2b43kt071p" path="res://assets/map/tile/city/bridge.tscn" id="5_f771f"]
 [ext_resource type="PackedScene" uid="uid://beo12vhaoj6iw" path="res://assets/map/tile/city/city_T-road.tscn" id="6_ujtla"]
 [ext_resource type="PackedScene" uid="uid://hfy4hgenjycf" path="res://assets/map/tile/herbe/Grass.tscn" id="7_7bbt0"]
+[ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://assets/piece/piece.tscn" id="8_c2vp7"]
 
 [node name="pyramide" type="Node3D"]
 
@@ -65,3 +66,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60, 2
 
 [node name="Grass" parent="." instance=ExtResource("7_7bbt0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 2, 20)
+
+[node name="Piece" parent="." instance=ExtResource("8_c2vp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.8, 38)
+
+[node name="Piece2" parent="." instance=ExtResource("8_c2vp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 2.8, -2)

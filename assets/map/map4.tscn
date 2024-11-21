@@ -1,0 +1,210 @@
+[gd_scene load_steps=6 format=3 uid="uid://7cv6ma2yugoa"]
+
+[ext_resource type="PackedScene" uid="uid://dq2j3uf6kmbrr" path="res://assets/map/tile/city/city_cross-road.tscn" id="1_lxnl6"]
+[ext_resource type="PackedScene" uid="uid://dndvwhv50oi3x" path="res://assets/map/tile/city/city_ramp.tscn" id="2_vu13c"]
+[ext_resource type="PackedScene" uid="uid://hfy4hgenjycf" path="res://assets/map/tile/herbe/Grass.tscn" id="3_0vtbd"]
+[ext_resource type="PackedScene" uid="uid://beo12vhaoj6iw" path="res://assets/map/tile/city/city_T-road.tscn" id="4_6isk0"]
+[ext_resource type="PackedScene" uid="uid://dnugr7cbtkxst" path="res://assets/map/tile/city/city_turn.tscn" id="5_wygnn"]
+
+[node name="Map" type="Node3D"]
+
+[node name="CityCross-road" parent="." instance=ExtResource("1_lxnl6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="T_road" type="Node3D" parent="."]
+
+[node name="T_road2" parent="T_road" instance=ExtResource("4_6isk0")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 1, -5, -40)
+
+[node name="T_road3" parent="T_road" instance=ExtResource("4_6isk0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, -5, 40)
+
+[node name="T_road4" parent="T_road" instance=ExtResource("4_6isk0")]
+transform = Transform3D(8.9407e-08, 1.48943e-09, -1, -1.13133e-08, 1, 1.48943e-09, 1, 1.13133e-08, 8.9407e-08, 41, -5, 0)
+
+[node name="T_road1" parent="T_road" instance=ExtResource("4_6isk0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39, -5, 0)
+
+[node name="Grass" type="Node3D" parent="."]
+
+[node name="Grass5" parent="Grass" instance=ExtResource("3_0vtbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -5, -20)
+
+[node name="Grass6" parent="Grass" instance=ExtResource("3_0vtbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -5, -20)
+
+[node name="Grass8" parent="Grass" instance=ExtResource("3_0vtbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -5, 20)
+
+[node name="Grass9" parent="Grass" instance=ExtResource("3_0vtbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -5, 20)
+
+[node name="ramp" type="Node3D" parent="."]
+
+[node name="Rampe" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -2, -20)
+
+[node name="Rampe2" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, -2, 0)
+
+[node name="Rampe4" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -19, -2, 0)
+
+[node name="Rampe3" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, -2, 20)
+
+[node name="Rampe12" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -19, -7, -60)
+
+[node name="Rampe7" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79, -12, -40)
+
+[node name="Rampe6" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -59, -7, -20)
+
+[node name="Rampe13" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39, -12, -80)
+
+[node name="Rampe14" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1818, -7, -60)
+
+[node name="Rampe16" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 61.1818, -7, -20)
+
+[node name="Rampe30" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 61, -7, 20)
+
+[node name="Rampe31" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, 21, -7, 60)
+
+[node name="Rampe32" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, -19, -7, 60)
+
+[node name="Rampe33" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -59, -7, 20)
+
+[node name="Rampe29" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.1818, -12, -40)
+
+[node name="Rampe27" parent="ramp" instance=ExtResource("2_vu13c")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.1818, -12, -80)
+
+[node name="CityTurn2" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -39, -5, -20)
+
+[node name="CityTurn4" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, -5, -40)
+
+[node name="CityTurn9" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -59, -15, -60)
+
+[node name="CityTurn11" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, -5, -40)
+
+[node name="CityTurn12" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, -19, -10, -80)
+
+[node name="CityTurn15" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -59, -15, -60)
+
+[node name="CityTurn19" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 81.1818, -10, -20)
+
+[node name="CityTurn20" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 61.1818, -15, -80)
+
+[node name="CityTurn21" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 81.1818, -15, -60)
+
+[node name="CityTurn25" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, -5, -40)
+
+[node name="CityTurn27" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -79, -15, -60)
+
+[node name="CityTurn28" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -59, -15, -80)
+
+[node name="CityTurn29" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -59, -15, -60)
+
+[node name="CityTurn31" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -79, -10, -20)
+
+[node name="CityTurn36" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -59, -15, -60)
+
+[node name="CityTurn37" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21, -5, -40)
+
+[node name="CityTurn38" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 21.1818, -10, -80)
+
+[node name="CityTurn39" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.1818, -5, -20)
+
+[node name="CityTurn43" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 61.1818, -15, -60)
+
+[node name="CityTurn45" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, -5, 40)
+
+[node name="CityTurn46" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -5, 40)
+
+[node name="CityTurn47" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 41, -5, 20)
+
+[node name="CityTurn44" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39, -5, 20)
+
+[node name="CityTurn22" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 21, -10, 80)
+
+[node name="CityTurn23" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -19, -10, 80)
+
+[node name="Rampe7" parent="." instance=ExtResource("2_vu13c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39, -12, 80)
+
+[node name="Rampe13" parent="." instance=ExtResource("2_vu13c")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -79, -12, 40)
+
+[node name="CityTurn10" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, -59, -15, 60)
+
+[node name="CityTurn16" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, -59, -15, 60)
+
+[node name="CityTurn30" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -59, -15, 80)
+
+[node name="CityTurn32" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -79, -15, 60)
+
+[node name="CityTurn33" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, -59, -15, 60)
+
+[node name="CityTurn40" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, -59, -15, 60)
+
+[node name="CityTurn24" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, -79, -10, 20)
+
+[node name="Rampe8" parent="." instance=ExtResource("2_vu13c")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 81, -12, 40)
+
+[node name="CityTurn34" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 81, -15, 60)
+
+[node name="CityTurn35" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 61, -15, 80)
+
+[node name="CityTurn41" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, 61, -15, 60)
+
+[node name="CityTurn26" parent="." instance=ExtResource("5_wygnn")]
+transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 81, -10, 20)
+
+[node name="Rampe9" parent="." instance=ExtResource("2_vu13c")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 41, -12, 80)

@@ -81,7 +81,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0l5i6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0.002, 9.35)
 
 [node name="LittleLineAngle" parent="." instance=ExtResource("1_g5uxb")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.35, 0.002, 8.8)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.35, 0.003, 8.8)
 metadata/_edit_group_ = true
 
 [node name="LittleLineAngle2" parent="." instance=ExtResource("1_g5uxb")]

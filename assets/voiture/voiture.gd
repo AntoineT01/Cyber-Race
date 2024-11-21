@@ -14,7 +14,7 @@ signal respawn_timer_cancelled(player_id: int)
 @export var player_id: int = 1
 @export var max_engine_force = 300.0
 @export var max_brake_force = 20.0
-@export var max_steer_angle = 0.5
+@export var max_steer_angle = 0.7
 
 @export var steering_control = "steering"
 @export var throttle_control = "throttle"
@@ -33,7 +33,7 @@ signal respawn_timer_cancelled(player_id: int)
 @export var wheel_radius: float = 0.45
 @export var suspension_travel: float = 0.3
 @export var suspension_stiffness: float = 80.0
-@export var wheel_friction_slip: float = 8.0
+@export var wheel_friction_slip: float = 5.0
 
 # Références aux nodes
 @onready var left_taillight = $Taillights/LeftTaillight
@@ -50,7 +50,7 @@ var is_respawn_timer_active: bool = false
 
 # Constantes
 const MAX_LINEAR_VELOCITY = 5.0
-const MAX_ANGULAR_VELOCITY = 1.0
+const MAX_ANGULAR_VELOCITY = 0.2
 
 func _ready():
 	add_to_group("players")
