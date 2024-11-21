@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfsu66r0vscvu"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_main"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_leaves"]
+albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
+roughness = 0.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_collision"]
+radius = 1.2
+
+[node name="Bush" type="StaticBody3D"]
+
+[node name="MainBush" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Detail1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.4, 0.2, 0.3)
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Detail2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.3, 0.3, -0.4)
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Detail3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.6, -0.2, -0.3)
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Detail4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.5, -0.3, 0.4)
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Detail5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0.2, 0.4, 0.6)
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Detail6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -0.6, 0.3, 0.5)
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Detail7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.5, -0.2, 0.7)
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="Detail8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.4, -0.3, -0.6)
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="TopDetail1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.8, 0)
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="TopDetail2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.3, 0.7, 0.2)
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="BottomDetail1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.4, 0, 0, 0, 0.7, 0, -0.6, 0)
+mesh = SubResource("SphereMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_leaves")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_collision")
