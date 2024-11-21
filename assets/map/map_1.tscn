@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpsif1d7raor4"]
+[gd_scene load_steps=7 format=3 uid="uid://dpsif1d7raor4"]
 
 [ext_resource type="PackedScene" uid="uid://c82m1ad7xyuia" path="res://assets/map/tile/herbe/route droite.tscn" id="1_uqve0"]
 [ext_resource type="PackedScene" uid="uid://ddstlqtrj64qe" path="res://assets/map/tile/herbe/virage ligne droite.tscn" id="2_agu7q"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cnce6shn1r8xb" path="res://assets/map/tile/herbe/route droite avec trait .tscn" id="4_4jc7c"]
 [ext_resource type="PackedScene" uid="uid://dqbrqm7kcmq8t" path="res://assets/map/tile/herbe/virage.tscn" id="5_deuby"]
 [ext_resource type="PackedScene" uid="uid://b6xufot4sg2a6" path="res://assets/map/tile/herbe/starting_line.tscn" id="6_l662x"]
-[ext_resource type="PackedScene" uid="uid://dhyx0ncpvossk" path="res://assets/map/tile/herbe/ramp.tscn" id="7_g4gib"]
 
 [node name="map 1" type="Node3D"]
 
@@ -18,9 +17,6 @@ transform = Transform3D(1, 0, -3.53439e-15, 0, 1, 0, 3.53439e-15, 0, 1, 40, 0, 4
 
 [node name="VirageLigneGauche" parent="." instance=ExtResource("3_holr7")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 0, 60)
-
-[node name="RouteDroiteTrait" parent="." instance=ExtResource("4_4jc7c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
 
 [node name="VirageLigneDroite2" parent="." instance=ExtResource("2_agu7q")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, 0, 40)
@@ -71,9 +67,3 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80, 0,
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 0, -20)
 
 [node name="Starting Line" parent="." instance=ExtResource("6_l662x")]
-
-[node name="Ramp" parent="." instance=ExtResource("7_g4gib")]
-transform = Transform3D(-0.00157081, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.00157081, 120, 3, 0)
-
-[node name="Virage5" parent="." instance=ExtResource("5_deuby")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 140, 5, 0)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccbbtu82u35lu"]
+[gd_scene load_steps=9 format=3 uid="uid://ccbbtu82u35lu"]
 
 [ext_resource type="PackedScene" uid="uid://b6xufot4sg2a6" path="res://assets/map/tile/herbe/starting_line.tscn" id="1_g6gxy"]
 [ext_resource type="PackedScene" uid="uid://c82m1ad7xyuia" path="res://assets/map/tile/herbe/route droite.tscn" id="2_cpprr"]
 [ext_resource type="PackedScene" uid="uid://ddstlqtrj64qe" path="res://assets/map/tile/herbe/virage ligne droite.tscn" id="3_vex26"]
 [ext_resource type="PackedScene" uid="uid://ce7oagguvop00" path="res://assets/map/tile/herbe/virage ligne gauche.tscn" id="4_lk4xo"]
-[ext_resource type="PackedScene" uid="uid://cfdotnbbxsqgi" path="res://assets/map/tile/herbe/cross_road.tscn" id="5_6jyvs"]
 [ext_resource type="PackedScene" uid="uid://dqbrqm7kcmq8t" path="res://assets/map/tile/herbe/virage.tscn" id="6_in7iw"]
 [ext_resource type="PackedScene" uid="uid://dhyx0ncpvossk" path="res://assets/map/tile/herbe/ramp.tscn" id="7_v8bg8"]
 [ext_resource type="Script" path="res://scripts/checkpoint.gd" id="8_6oc5u"]
@@ -31,39 +30,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0,
 [node name="RouteDroite3" parent="." instance=ExtResource("2_cpprr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -80)
 
-[node name="VirageLigneDroite2" parent="." instance=ExtResource("3_vex26")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -100)
-
-[node name="VirageLigneDroite3" parent="." instance=ExtResource("3_vex26")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 40, 0, -100)
-
-[node name="RouteDroite4" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -120)
-
-[node name="RouteDroite5" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -120)
-
-[node name="VirageLigneDroite4" parent="." instance=ExtResource("3_vex26")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 40, 0, -160)
-
-[node name="CrossRoad" parent="." instance=ExtResource("5_6jyvs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -140)
-
-[node name="VirageLigneDroite5" parent="." instance=ExtResource("3_vex26")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 20, 0, -160)
-
-[node name="Virage" parent="." instance=ExtResource("6_in7iw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0, -140)
-
-[node name="RouteDroite6" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, 0, -140)
-
-[node name="RouteDroite7" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80, 0, -140)
-
-[node name="Virage2" parent="." instance=ExtResource("6_in7iw")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 120, 0, -140)
-
 [node name="RouteDroite8" parent="." instance=ExtResource("2_cpprr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -100)
 
@@ -73,26 +39,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -80)
 [node name="RouteDroite10" parent="." instance=ExtResource("2_cpprr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -60)
 
-[node name="RouteDroite11" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 264, 0, -29)
-
-[node name="VirageLigneGauche2" parent="." instance=ExtResource("4_lk4xo")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 264, 0, -9)
-
-[node name="VirageLigneGauche3" parent="." instance=ExtResource("4_lk4xo")]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 244, 0, -9)
-
-[node name="VirageLigneGauche4" parent="." instance=ExtResource("4_lk4xo")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 204, 0, -29)
-
 [node name="RouteDroite12" parent="." instance=ExtResource("2_cpprr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 5, -20)
-
-[node name="RouteDroite13" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 0, -140)
-
-[node name="RouteDroite14" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 224, 0, -29)
 
 [node name="RouteDroite15" parent="." instance=ExtResource("2_cpprr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 5, 0)
@@ -109,14 +57,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 5, 60)
 [node name="RouteDroite19" parent="." instance=ExtResource("2_cpprr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 5, 80)
 
-[node name="VirageLigneGauche5" parent="." instance=ExtResource("4_lk4xo")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 120, 5, 100)
-
 [node name="VirageLigneGauche6" parent="." instance=ExtResource("4_lk4xo")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 0, 100)
-
-[node name="RouteDroite20" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 0, 100)
 
 [node name="RouteDroite21" parent="." instance=ExtResource("2_cpprr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80)
@@ -126,9 +68,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0,
 
 [node name="VirageLigneGauche7" parent="." instance=ExtResource("4_lk4xo")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.13163e-13, 0, 60)
-
-[node name="VirageLigneGauche8" parent="." instance=ExtResource("4_lk4xo")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 244, 0, -29)
 
 [node name="VirageLigneGauche9" parent="." instance=ExtResource("4_lk4xo")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -20, 0, 60)
@@ -146,13 +85,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 3, -40)
 
 [node name="RouteDroite25" parent="." instance=ExtResource("7_v8bg8")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60, 3, 100)
-
-[node name="RouteDroite26" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 5, 100)
-
-[node name="RouteDroite27" parent="." instance=ExtResource("2_cpprr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80, 5, 100)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 3, 100)
 
 [node name="Checkpoints" type="Node3D" parent="."]
 
@@ -177,3 +110,96 @@ script = ExtResource("8_6oc5u")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/CheckPoint3"]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 shape = SubResource("BoxShape3D_nt142")
+
+[node name="RouteDroite11" parent="." instance=ExtResource("7_v8bg8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, 3, 100)
+
+[node name="RouteDroite26" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80, 0, 100)
+
+[node name="RouteDroite27" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 0, 100)
+
+[node name="RouteDroite28" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 120, 0, 100)
+
+[node name="Virage3" parent="." instance=ExtResource("6_in7iw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 140, 0, 100)
+
+[node name="Virage4" parent="." instance=ExtResource("6_in7iw")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 140, 0, 140)
+
+[node name="RouteDroite29" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 140, 0, 120)
+
+[node name="RouteDroite20" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 5, 100)
+
+[node name="RouteDroite30" parent="." instance=ExtResource("7_v8bg8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 120, 3, 120)
+
+[node name="Virage5" parent="." instance=ExtResource("6_in7iw")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 120, 0, 140)
+
+[node name="RouteDroite31" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 120, 0, -140)
+
+[node name="Virage6" parent="." instance=ExtResource("6_in7iw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -160)
+
+[node name="Virage7" parent="." instance=ExtResource("6_in7iw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 160, 0, -160)
+
+[node name="RouteDroite32" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 140, 0, -160)
+
+[node name="RouteDroite33" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 120, 5, -140)
+
+[node name="RouteDroite34" parent="." instance=ExtResource("7_v8bg8")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 140, 3, -140)
+
+[node name="Virage8" parent="." instance=ExtResource("6_in7iw")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 160, 0, -140)
+
+[node name="RouteDroite35" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 120, 0, -120)
+
+[node name="RouteDroite36" parent="." instance=ExtResource("7_v8bg8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 3, -140)
+
+[node name="RouteDroite37" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 5, -140)
+
+[node name="RouteDroite38" parent="." instance=ExtResource("7_v8bg8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 3, -140)
+
+[node name="Virage9" parent="." instance=ExtResource("6_in7iw")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 0, -140)
+
+[node name="RouteDroite39" parent="." instance=ExtResource("7_v8bg8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, 3, -140)
+
+[node name="RouteDroite4" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 80, 0, -140)
+
+[node name="Virage10" parent="." instance=ExtResource("6_in7iw")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, -160)
+
+[node name="RouteDroite5" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0, -160)
+
+[node name="Virage11" parent="." instance=ExtResource("6_in7iw")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 40, 0, -160)
+
+[node name="RouteDroite6" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -140)
+
+[node name="RouteDroite14" parent="." instance=ExtResource("2_cpprr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -120)
+
+[node name="Virage12" parent="." instance=ExtResource("6_in7iw")]
+transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, 40, 0, -100)
+
+[node name="Virage13" parent="." instance=ExtResource("6_in7iw")]
+transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 20, 0, -100)
