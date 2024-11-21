@@ -50,53 +50,26 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 133.5,
 [node name="wall5" parent="." instance=ExtResource("3_5i16w")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -87.6, -3, 57.4)
 
-[node name="Pieces" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.9091, 0.00012207, -30.8271)
+[node name="Piece" parent="." instance=ExtResource("5_l5y5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73, -2.2, -37)
 
-[node name="Piece1" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.57799, 30)
+[node name="Piece2" parent="." instance=ExtResource("5_l5y5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116, -2.2, -37)
 
-[node name="Piece2" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8275, 2.74114, 24.4324)
+[node name="Piece3" parent="." instance=ExtResource("5_l5y5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116, -2.2, 152)
 
-[node name="Piece3" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98302, 2.44695, 105.652)
+[node name="Piece4" parent="." instance=ExtResource("5_l5y5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, -2.2, 152)
 
-[node name="Piece4" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.251, 2.50677, 26.052)
+[node name="Piece5" parent="." instance=ExtResource("5_l5y5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -2.2, 138)
 
-[node name="Piece5" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.647, 2.74426, 144.381)
+[node name="Piece6" parent="." instance=ExtResource("5_l5y5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -2.2, -19)
 
-[node name="Piece6" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5285, 2.69658, 147)
+[node name="Piece7" parent="." instance=ExtResource("5_l5y5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103, -2.2, 59)
 
-[node name="Piece7" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.8998, 2.69658, 147)
-
-[node name="Piece8" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.08, 2.69658, 147)
-
-[node name="Piece9" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.7686, 8.1828, 139.588)
-
-[node name="Piece10" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.045, -2.05849, 5.94534)
-
-[node name="Piece11" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.045, 3.70183, 64.8795)
-
-[node name="Piece12" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.812, 8.70374, 64.8795)
-
-[node name="Piece13" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.812, 8.70374, 107.727)
-
-[node name="Piece14" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.918, 8.70374, 107.727)
-
-[node name="Piece15" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.918, 8.70374, 64.8326)
-
-[node name="Piece16" parent="Pieces" instance=ExtResource("5_l5y5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.918, 8.70374, 64.8326)
+[node name="Piece8" parent="." instance=ExtResource("5_l5y5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, -2.2, 59)

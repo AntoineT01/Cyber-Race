@@ -68,7 +68,13 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60, 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 2, 20)
 
 [node name="Piece" parent="." instance=ExtResource("8_c2vp7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.8, 38)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 40)
 
 [node name="Piece2" parent="." instance=ExtResource("8_c2vp7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 2.8, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 2.8, 0)
+
+[node name="Piece3" parent="." instance=ExtResource("8_c2vp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 2.8, 40)
+
+[node name="Piece4" parent="." instance=ExtResource("8_c2vp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 2.8, -10)
