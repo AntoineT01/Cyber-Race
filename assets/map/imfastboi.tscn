@@ -1,0 +1,256 @@
+[gd_scene load_steps=13 format=3 uid="uid://0ts7641nogso"]
+
+[ext_resource type="PackedScene" uid="uid://b6xufot4sg2a6" path="res://assets/map/tile/herbe/starting_line.tscn" id="1_l1oyd"]
+[ext_resource type="PackedScene" uid="uid://ddstlqtrj64qe" path="res://assets/map/tile/herbe/virage ligne droite.tscn" id="3_10f6v"]
+[ext_resource type="PackedScene" uid="uid://cfvom0jsc88ry" path="res://assets/map/objet/building.tscn" id="3_hrfm8"]
+[ext_resource type="PackedScene" uid="uid://ce7oagguvop00" path="res://assets/map/tile/herbe/virage ligne gauche.tscn" id="4_6irbx"]
+[ext_resource type="PackedScene" uid="uid://cnce6shn1r8xb" path="res://assets/map/tile/herbe/route droite avec trait .tscn" id="4_xado4"]
+[ext_resource type="PackedScene" uid="uid://cfdotnbbxsqgi" path="res://assets/map/tile/herbe/cross_road.tscn" id="5_4attj"]
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="6_1bgy4"]
+[ext_resource type="PackedScene" uid="uid://dqyx4dtqerm" path="res://assets/map/objet/rock1.tscn" id="6_orlci"]
+[ext_resource type="PackedScene" uid="uid://d4cegya12no05" path="res://assets/map/objet/rock2.tscn" id="7_7qppw"]
+[ext_resource type="PackedScene" uid="uid://cmw5nwj5n0caw" path="res://assets/map/objet/tree.tscn" id="8_ns7ay"]
+[ext_resource type="PackedScene" uid="uid://hfy4hgenjycf" path="res://assets/map/tile/herbe/Grass.tscn" id="10_18ykr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nt142"]
+size = Vector3(22, 10, 1)
+
+[node name="Node" type="Node3D"]
+
+[node name="Starting Line" parent="." instance=ExtResource("1_l1oyd")]
+
+[node name="Checkpoints" type="Node3D" parent="."]
+
+[node name="CheckPoint1" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -0.190989, 1.99085, 89.731)
+script = ExtResource("6_1bgy4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/CheckPoint1"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
+shape = SubResource("BoxShape3D_nt142")
+
+[node name="CheckPoint2" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 153.986, 1.99085, -21.2195)
+script = ExtResource("6_1bgy4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/CheckPoint2"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
+shape = SubResource("BoxShape3D_nt142")
+
+[node name="CheckPoint3" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -0.190989, 1.99085, 7.6053)
+script = ExtResource("6_1bgy4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/CheckPoint3"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
+shape = SubResource("BoxShape3D_nt142")
+
+[node name="Building" parent="." instance=ExtResource("3_hrfm8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.151299, 0, 50.5772)
+
+[node name="Building2" parent="." instance=ExtResource("3_hrfm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.151299, 0, 68.5772)
+
+[node name="RouteDroiteTrait" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="CrossRoad" parent="." instance=ExtResource("5_4attj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="CrossRoad2" parent="." instance=ExtResource("5_4attj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80)
+
+[node name="Rock1" parent="." instance=ExtResource("6_orlci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.13531, 0, 48.1621)
+
+[node name="Rock3" parent="." instance=ExtResource("6_orlci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.13531, 0, 71.6426)
+
+[node name="Rock2" parent="." instance=ExtResource("7_7qppw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 48)
+
+[node name="Rock4" parent="." instance=ExtResource("7_7qppw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 72)
+
+[node name="Rock9" parent="." instance=ExtResource("7_7qppw")]
+transform = Transform3D(0.793778, 0, 0.608207, 0, 1, 0, -0.608207, 0, 0.793778, 15.0094, 0, 87.2202)
+
+[node name="Rock10" parent="." instance=ExtResource("7_7qppw")]
+transform = Transform3D(0.745045, 0.667014, 0, -0.667014, 0.745045, 0, 0, 0, 1, 9.7151, 0, 88.2771)
+
+[node name="Rock11" parent="." instance=ExtResource("7_7qppw")]
+transform = Transform3D(-0.0273634, -0.999626, 0, 0.999626, -0.0273634, 0, 0, 0, 1, 23.6859, 0, 88.3831)
+
+[node name="Rock12" parent="." instance=ExtResource("7_7qppw")]
+transform = Transform3D(-0.668793, 0, -0.743448, 0, 1, 0, 0.743448, 0, -0.668793, 28.4512, 0, 85.1815)
+
+[node name="Rock13" parent="." instance=ExtResource("7_7qppw")]
+transform = Transform3D(0.933148, 0, 0.359492, 0, 1, 0, -0.359492, 0, 0.933148, 16.3742, 0, 90.7564)
+
+[node name="Tree" parent="." instance=ExtResource("8_ns7ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 32)
+
+[node name="Tree2" parent="." instance=ExtResource("8_ns7ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 32)
+
+[node name="Tree3" parent="." instance=ExtResource("8_ns7ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 87.6354)
+
+[node name="Tree8" parent="." instance=ExtResource("8_ns7ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6555, 0, 87.6354)
+
+[node name="Tree9" parent="." instance=ExtResource("8_ns7ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1548, 0, 87.6354)
+
+[node name="Tree10" parent="." instance=ExtResource("8_ns7ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6023, 0, 87.6354)
+
+[node name="Tree11" parent="." instance=ExtResource("8_ns7ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0582, 0, 87.6354)
+
+[node name="Tree4" parent="." instance=ExtResource("8_ns7ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 87.6354)
+
+[node name="Tree5" parent="." instance=ExtResource("8_ns7ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 59.6354)
+
+[node name="Tree6" parent="." instance=ExtResource("8_ns7ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 59.6354)
+
+[node name="Tree7" parent="." instance=ExtResource("8_ns7ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 59.6354)
+
+[node name="VirageLigneDroite" parent="." instance=ExtResource("3_10f6v")]
+transform = Transform3D(1.00518, 0, 0, 0, 1.00518, 0, 0, 0, 1.00518, -20, 0, 40)
+
+[node name="VirageLigneDroite4" parent="." instance=ExtResource("3_10f6v")]
+transform = Transform3D(-4.39378e-08, 0, 1.00518, 0, 1.00518, 0, -1.00518, 0, -4.39378e-08, -20, 0, 80)
+
+[node name="VirageLigneDroite2" parent="." instance=ExtResource("3_10f6v")]
+transform = Transform3D(-4.39378e-08, 0, -1.00518, 0, 1.00518, 0, 1.00518, 0, -4.39378e-08, 20, 0, 40)
+
+[node name="VirageLigneDroite3" parent="." instance=ExtResource("3_10f6v")]
+transform = Transform3D(-1.00518, 0, 8.78756e-08, 0, 1.00518, 0, -8.78756e-08, 0, -1.00518, 20, 0, 80)
+
+[node name="VirageLigneDroite5" parent="." instance=ExtResource("3_10f6v")]
+transform = Transform3D(1.31813e-07, 0, 1.00518, 0, 1.00518, 0, -1.00518, 0, 1.31813e-07, 0, 0, 100)
+
+[node name="Grass" parent="." instance=ExtResource("10_18ykr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60)
+
+[node name="RouteDroiteTrait2" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 60)
+
+[node name="RouteDroiteTrait3" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 60)
+
+[node name="RouteDroiteTrait4" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0, 100)
+
+[node name="RouteDroiteTrait5" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 0, 100)
+
+[node name="RouteDroiteTrait6" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, 0, 100)
+
+[node name="RouteDroiteTrait7" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80, 0, 100)
+
+[node name="RouteDroiteTrait8" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 0, 100)
+
+[node name="RouteDroiteTrait9" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 120, 0, 100)
+
+[node name="RouteDroiteTrait10" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 140, 0, 100)
+
+[node name="RouteDroiteTrait11" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 160, 0, 100)
+
+[node name="RouteDroiteTrait12" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 179, 0, 100)
+
+[node name="RouteDroiteTrait13" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 199, 0, 100)
+
+[node name="RouteDroiteTrait14" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 219, 0, 100)
+
+[node name="RouteDroiteTrait15" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 239, 0, 100)
+
+[node name="RouteDroiteTrait21" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 0, -20)
+
+[node name="RouteDroiteTrait30" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0, -20)
+
+[node name="RouteDroiteTrait22" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, 0, -20)
+
+[node name="RouteDroiteTrait23" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80, 0, -20)
+
+[node name="RouteDroiteTrait24" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 0, -20)
+
+[node name="RouteDroiteTrait25" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 120, 0, -20)
+
+[node name="RouteDroiteTrait26" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 139, 0, -20)
+
+[node name="RouteDroiteTrait27" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 159, 0, -20)
+
+[node name="RouteDroiteTrait28" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 179, 0, -20)
+
+[node name="RouteDroiteTrait29" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 199, 0, -20)
+
+[node name="VirageLigneGauche" parent="." instance=ExtResource("4_6irbx")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 259, 0, 100)
+
+[node name="RouteDroiteTrait16" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 259, 0, 80)
+
+[node name="RouteDroiteTrait17" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 259, 0, 60)
+
+[node name="RouteDroiteTrait18" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 259, 0, 40)
+
+[node name="RouteDroiteTrait19" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 259, 0, 20)
+
+[node name="RouteDroiteTrait20" parent="." instance=ExtResource("4_xado4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219, 0, 0)
+
+[node name="VirageLigneGauche2" parent="." instance=ExtResource("4_6irbx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 259, 0, 0)
+
+[node name="VirageLigneGauche3" parent="." instance=ExtResource("4_6irbx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 239, 0, 0)
+
+[node name="VirageLigneGauche4" parent="." instance=ExtResource("4_6irbx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 239, 0, 20)
+
+[node name="VirageLigneGauche5" parent="." instance=ExtResource("4_6irbx")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 219, 0, 20)
+
+[node name="VirageLigneGauche6" parent="." instance=ExtResource("4_6irbx")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 219, 0, -20)
+
+[node name="VirageLigneGauche7" parent="." instance=ExtResource("4_6irbx")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, -20)
+
+[node name="Rock7" parent="." instance=ExtResource("7_7qppw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.11, -1.90735e-06, -5.92786)
+
+[node name="Rock8" parent="." instance=ExtResource("6_orlci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 227.559, 1.90735e-06, 2.94399)
+
+[node name="Building3" parent="." instance=ExtResource("3_hrfm8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 207.203, 0, -7.70599)
