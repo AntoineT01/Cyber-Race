@@ -64,5 +64,10 @@ func update_score_label():
 	if current_victory_type == VictoryType.PIECES:
 		display_text += "Pièces: %d / %d" % [piece_score, victory_target]
 	elif current_victory_type == VictoryType.LAPS:
-		display_text += "Tours: %d / %d" % [lap_score, victory_target]
+		var display_score: int
+		if lap_score < victory_target:
+			display_score = lap_score + 1
+		else:
+			display_score =	 victory_target
+		display_text += "Tours: %d / %d" % [display_score, victory_target]
 	score_label.text = display_text

@@ -121,6 +121,7 @@ text = "Quitter"
 visible = false
 layout_mode = 1
 map1 = "res://main_scenes/race.tscn"
+map2 = "res://main_scenes/race_imfastboi.tscn"
 
 [connection signal="pressed" from="Node/CenterContainer/VBoxContainer/PiecesRaceButton" to="." method="_on_pieces_race_button_pressed"]
 [connection signal="pressed" from="Node/CenterContainer/VBoxContainer/RaceButton" to="." method="_on_race_button_pressed"]

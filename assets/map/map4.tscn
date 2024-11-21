@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://7cv6ma2yugoa"]
+[gd_scene load_steps=6 format=3 uid="uid://xjojk6jwvuae"]
 
 [ext_resource type="PackedScene" uid="uid://dq2j3uf6kmbrr" path="res://assets/map/tile/city/city_cross-road.tscn" id="1_lxnl6"]
 [ext_resource type="PackedScene" uid="uid://dndvwhv50oi3x" path="res://assets/map/tile/city/city_ramp.tscn" id="2_vu13c"]
