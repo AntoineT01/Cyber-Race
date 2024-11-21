@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfvom0jsc88ry"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_main"]
+size = Vector3(10, 12, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
+albedo_color = Color(0.92, 0.71254, 0.5428, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_window"]
+size = Vector3(2, 2, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_window"]
+albedo_color = Color(0.529, 0.808, 0.922, 1)
+metallic = 0.8
+roughness = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5yq6"]
+albedo_color = Color(0.108217, 0.0550111, 0.0144986, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_door"]
+size = Vector3(2, 3, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_door"]
+albedo_color = Color(0.4, 0.26, 0.13, 1)
+metallic = 0.2
+roughness = 0.5
+
+[node name="Building" type="Node3D"]
+
+[node name="MainStructure" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("BoxMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_wall")
+
+[node name="windows1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 4)
+mesh = SubResource("BoxMesh_window")
+surface_material_override/0 = SubResource("StandardMaterial3D_window")
+
+[node name="windows2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6, 4)
+mesh = SubResource("BoxMesh_window")
+surface_material_override/0 = SubResource("StandardMaterial3D_window")
+
+[node name="windows3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6, 4)
+mesh = SubResource("BoxMesh_window")
+surface_material_override/0 = SubResource("StandardMaterial3D_window")
+
+[node name="windows4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 10, 4)
+mesh = SubResource("BoxMesh_window")
+surface_material_override/0 = SubResource("StandardMaterial3D_window")
+
+[node name="toit" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.05, 0, 0, 0, 0.05, 0, 0, 0, 1.05, 0, 12, 0.0999999)
+mesh = SubResource("BoxMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_l5yq6")
+
+[node name="door" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 4)
+mesh = SubResource("BoxMesh_door")
+surface_material_override/0 = SubResource("StandardMaterial3D_door")
+
+[node name="windows5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 10, 4)
+mesh = SubResource("BoxMesh_window")
+surface_material_override/0 = SubResource("StandardMaterial3D_window")
