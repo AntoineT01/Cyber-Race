@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dweljdy0rfvvu"]
+
+[ext_resource type="Texture2D" uid="uid://dj6x3aw07v7gl" path="res://assets/texture/muret en pierre/albedo.png" id="1_1hvcp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_main"]
+size = Vector3(10, 1, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_stone"]
+albedo_texture = ExtResource("1_1hvcp")
+roughness = 0.8
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_offset = Vector3(0, 0, 90)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qj4ts"]
+size = Vector3(10, 1, 0.4)
+
+[node name="StoneWall" type="StaticBody3D"]
+
+[node name="MainWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_stone")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_qj4ts")
