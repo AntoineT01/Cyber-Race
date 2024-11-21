@@ -1,0 +1,196 @@
+[gd_scene load_steps=15 format=3 uid="uid://b5wxyat11swtr"]
+
+[ext_resource type="Texture2D" uid="uid://du6ayfarxj4eq" path="res://assets/texture/facade-/albedo.png" id="1_ecapw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_main"]
+size = Vector3(10, 8, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
+albedo_texture = ExtResource("1_ecapw")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_building"]
+size = Vector3(10, 8, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_window"]
+size = Vector3(2, 2.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_window"]
+albedo_color = Color(0.529, 0.808, 0.922, 1)
+metallic = 0.8
+roughness = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_door"]
+size = Vector3(2, 3, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_door"]
+albedo_color = Color(0.4, 0.26, 0.13, 1)
+metallic = 0.2
+roughness = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_balcony"]
+size = Vector3(3, 0.2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_balcony"]
+albedo_color = Color(0.7, 0.7, 0.7, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_railing"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_railing"]
+albedo_color = Color(0.3, 0.3, 0.3, 1)
+metallic = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_ae4ip"]
+size = Vector3(10, 20, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qj7g"]
+albedo_color = Color(0.108217, 0.0550111, 0.0144986, 1)
+
+[node name="Building" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MainStructure" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+mesh = SubResource("BoxMesh_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_wall")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_building")
+
+[node name="Windows" type="Node3D" parent="."]
+
+[node name="Window3" type="MeshInstance3D" parent="Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5.6, 4.1)
+mesh = SubResource("BoxMesh_window")
+surface_material_override/0 = SubResource("StandardMaterial3D_window")
+
+[node name="Window4" type="MeshInstance3D" parent="Windows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5.6, 4.1)
+mesh = SubResource("BoxMesh_window")
+surface_material_override/0 = SubResource("StandardMaterial3D_window")
+
+[node name="Door" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4.1)
+mesh = SubResource("BoxMesh_door")
+surface_material_override/0 = SubResource("StandardMaterial3D_door")
+
+[node name="Balconies" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
+
+[node name="Balcony1" type="Node3D" parent="Balconies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 5)
+
+[node name="Floor" type="MeshInstance3D" parent="Balconies/Balcony1"]
+mesh = SubResource("BoxMesh_balcony")
+surface_material_override/0 = SubResource("StandardMaterial3D_balcony")
+
+[node name="Railing" type="Node3D" parent="Balconies/Balcony1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Post1" type="MeshInstance3D" parent="Balconies/Balcony1/Railing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0, -0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Post2" type="MeshInstance3D" parent="Balconies/Balcony1/Railing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0, -0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Post3" type="MeshInstance3D" parent="Balconies/Balcony1/Railing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0, 0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Post4" type="MeshInstance3D" parent="Balconies/Balcony1/Railing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0, 0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Rail1" type="MeshInstance3D" parent="Balconies/Balcony1/Railing"]
+transform = Transform3D(-7.86805e-08, 0, 1, 0, 1, 0, -1.8, 0, -4.37114e-08, -1.4, 0, 0)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Rail2" type="MeshInstance3D" parent="Balconies/Balcony1/Railing"]
+transform = Transform3D(-7.86805e-08, 0, 1, 0, 1, 0, -1.8, 0, -4.37114e-08, 1.4, 0, 0)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Rail3" type="MeshInstance3D" parent="Balconies/Balcony1/Railing"]
+transform = Transform3D(2.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Rail4" type="MeshInstance3D" parent="Balconies/Balcony1/Railing"]
+transform = Transform3D(2.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Balcony2" type="Node3D" parent="Balconies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 5)
+
+[node name="Balconies2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -1)
+
+[node name="Balcony1" type="Node3D" parent="Balconies2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 5)
+
+[node name="Floor" type="MeshInstance3D" parent="Balconies2/Balcony1"]
+mesh = SubResource("BoxMesh_balcony")
+surface_material_override/0 = SubResource("StandardMaterial3D_balcony")
+
+[node name="Railing" type="Node3D" parent="Balconies2/Balcony1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Post1" type="MeshInstance3D" parent="Balconies2/Balcony1/Railing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0, -0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Post2" type="MeshInstance3D" parent="Balconies2/Balcony1/Railing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0, -0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Post3" type="MeshInstance3D" parent="Balconies2/Balcony1/Railing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0, 0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Post4" type="MeshInstance3D" parent="Balconies2/Balcony1/Railing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0, 0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Rail1" type="MeshInstance3D" parent="Balconies2/Balcony1/Railing"]
+transform = Transform3D(-7.86805e-08, 0, 1, 0, 1, 0, -1.8, 0, -4.37114e-08, -1.4, 0, 0)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Rail2" type="MeshInstance3D" parent="Balconies2/Balcony1/Railing"]
+transform = Transform3D(-7.86805e-08, 0, 1, 0, 1, 0, -1.8, 0, -4.37114e-08, 1.4, 0, 0)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Rail3" type="MeshInstance3D" parent="Balconies2/Balcony1/Railing"]
+transform = Transform3D(2.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Rail4" type="MeshInstance3D" parent="Balconies2/Balcony1/Railing"]
+transform = Transform3D(2.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
+mesh = SubResource("BoxMesh_railing")
+surface_material_override/0 = SubResource("StandardMaterial3D_railing")
+
+[node name="Balcony2" type="Node3D" parent="Balconies2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 5)
+
+[node name="toit" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.05, 0, 0, 0, 0.0498097, -0.0915135, 0, 0.00435779, 1.046, 0, 8, 0.0999999)
+mesh = SubResource("BoxMesh_ae4ip")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qj7g")
