@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://hfy4hgenjycf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jbm01"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d78wq"]
+albedo_color = Color(0.4, 0.2, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lc7y6"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a5f7i"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgwto"]
+albedo_color = Color(0.1, 0.5, 0.1, 1)
+
+[node name="Grass" type="Node3D"]
+metadata/_edit_group_ = true
+
+[node name="EarthBase" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EarthBase"]
+mesh = SubResource("BoxMesh_jbm01")
+surface_material_override/0 = SubResource("StandardMaterial3D_d78wq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthBase"]
+shape = SubResource("BoxShape3D_lc7y6")
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+mesh = SubResource("PlaneMesh_a5f7i")
+surface_material_override/0 = SubResource("StandardMaterial3D_hgwto")
