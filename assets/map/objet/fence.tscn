@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://e1h66rcc5dre"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vertical"]
+size = Vector3(0.4, 2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wood"]
+albedo_color = Color(0.87, 0.65, 0.4, 1)
+roughness = 0.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_horizontal"]
+size = Vector3(10, 0.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jkj62"]
+size = Vector3(10, 2, 1)
+
+[node name="Fence" type="StaticBody3D"]
+
+[node name="VerticalPosts" type="Node3D" parent="."]
+
+[node name="Post1" type="MeshInstance3D" parent="VerticalPosts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
+mesh = SubResource("BoxMesh_vertical")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood")
+
+[node name="Post2" type="MeshInstance3D" parent="VerticalPosts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
+mesh = SubResource("BoxMesh_vertical")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood")
+
+[node name="Post3" type="MeshInstance3D" parent="VerticalPosts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_vertical")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood")
+
+[node name="Post4" type="MeshInstance3D" parent="VerticalPosts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+mesh = SubResource("BoxMesh_vertical")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood")
+
+[node name="Post5" type="MeshInstance3D" parent="VerticalPosts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+mesh = SubResource("BoxMesh_vertical")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood")
+
+[node name="HorizontalBars" type="Node3D" parent="."]
+
+[node name="Bar1" type="MeshInstance3D" parent="HorizontalBars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_horizontal")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood")
+
+[node name="Bar2" type="MeshInstance3D" parent="HorizontalBars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_horizontal")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood")
+
+[node name="Bar3" type="MeshInstance3D" parent="HorizontalBars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_horizontal")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_jkj62")

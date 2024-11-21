@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cyic2725cwu1o" path="res://assets/map/tile-group/pyramide.tscn" id="1_viyk1"]
 [ext_resource type="PackedScene" uid="uid://vs2b43kt071p" path="res://assets/map/tile/city/bridge.tscn" id="2_cadpd"]
 [ext_resource type="PackedScene" uid="uid://bhlkslgbhkjun" path="res://assets/map/objet/wall.tscn" id="3_5i16w"]
-[ext_resource type="PackedScene" path="res://assets/map/tile-group/ground.tscn" id="3_6adua"]
+[ext_resource type="PackedScene" uid="uid://d51cku43w2co" path="res://assets/map/tile-group/ground.tscn" id="3_6adua"]
 [ext_resource type="PackedScene" uid="uid://btfh3r6kqb0wg" path="res://assets/piece/piece.tscn" id="5_l5y5v"]
 
 [node name="Map3" type="Node3D"]
