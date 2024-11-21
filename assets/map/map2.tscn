@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccbbtu82u35lu"]
+[gd_scene load_steps=10 format=3 uid="uid://ccbbtu82u35lu"]
 
 [ext_resource type="PackedScene" uid="uid://b6xufot4sg2a6" path="res://assets/map/tile/herbe/starting_line.tscn" id="1_g6gxy"]
 [ext_resource type="PackedScene" uid="uid://c82m1ad7xyuia" path="res://assets/map/tile/herbe/route droite.tscn" id="2_cpprr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dqbrqm7kcmq8t" path="res://assets/map/tile/herbe/virage.tscn" id="6_in7iw"]
 [ext_resource type="PackedScene" uid="uid://dhyx0ncpvossk" path="res://assets/map/tile/herbe/ramp.tscn" id="7_v8bg8"]
 [ext_resource type="Script" path="res://scripts/checkpoint.gd" id="8_6oc5u"]
+[ext_resource type="PackedScene" uid="uid://e1h66rcc5dre" path="res://assets/map/objet/fence.tscn" id="8_rjku3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nt142"]
 size = Vector3(22, 10, 1)
@@ -203,3 +204,9 @@ transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, 40, 0,
 
 [node name="Virage13" parent="." instance=ExtResource("6_in7iw")]
 transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 20, 0, -100)
+
+[node name="Fence" parent="." instance=ExtResource("8_rjku3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 2)
+
+[node name="Fence2" parent="." instance=ExtResource("8_rjku3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 2)

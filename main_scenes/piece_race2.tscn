@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq5y6e5h10my6"]
+
+[ext_resource type="Script" path="res://main_scenes/piece_race.gd" id="1_83ost"]
+[ext_resource type="PackedScene" uid="uid://b6jsyexb5fyy7" path="res://utils/utilitaries.tscn" id="2_01vum"]
+[ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://assets/voiture/voiture.tscn" id="3_ubu7e"]
+[ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://assets/voiture/cybertruck.tscn" id="4_s76q4"]
+[ext_resource type="PackedScene" uid="uid://xjojk6jwvuae" path="res://assets/map/map4.tscn" id="5_e1llx"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_83ost")
+
+[node name="Utilitaries" parent="." instance=ExtResource("2_01vum")]
+
+[node name="Voiture1" parent="." groups=["cars"] instance=ExtResource("3_ubu7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 16.3805, 1.5)
+collision_layer = 1
+collision_mask = 1
+mass = 40.0
+center_of_mass_mode = -1
+steering_control = "steering_1"
+throttle_control = "throttle_1"
+brake_control = "brake_1"
+reverse_control = "reverse_1"
+respawn_position = Vector3(-2.5, 17, 1.5)
+
+[node name="Voiture2" parent="." groups=["cars"] instance=ExtResource("4_s76q4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8, 16.3805, 3)
+collision_layer = 1
+collision_mask = 1
+mass = 40.0
+center_of_mass_mode = -1
+player_id = 2
+steering_control = "steering_2"
+throttle_control = "throttle_2"
+brake_control = "brake_2"
+reverse_control = "reverse_2"
+respawn_position = Vector3(2.8, 17, 3)
+
+[node name="Map" parent="." instance=ExtResource("5_e1llx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.0805, 0)

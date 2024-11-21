@@ -17,6 +17,7 @@ script = ExtResource("1_utu3e")
 visible = false
 layout_mode = 1
 map1 = "res://main_scenes/piece_race.tscn"
+map2 = "res://main_scenes/piece_race2.tscn"
 
 [node name="Node" type="Control" parent="."]
 layout_mode = 1

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dq2j3uf6kmbrr" path="res://assets/map/tile/city/city_cross-road.tscn" id="1_lxnl6"]
 [ext_resource type="PackedScene" uid="uid://dndvwhv50oi3x" path="res://assets/map/tile/city/city_ramp.tscn" id="2_vu13c"]
-[ext_resource type="PackedScene" uid="uid://hfy4hgenjycf" path="res://assets/map/tile/herbe/grass.tscn" id="3_0vtbd"]
 [ext_resource type="PackedScene" uid="uid://beo12vhaoj6iw" path="res://assets/map/tile/city/city_T-road.tscn" id="4_6isk0"]
+[ext_resource type="PackedScene" uid="uid://hfy4hgenjycf" path="res://assets/map/tile/city/city_grass.tscn" id="5_t0yt2"]
 [ext_resource type="PackedScene" uid="uid://dnugr7cbtkxst" path="res://assets/map/tile/city/city_turn.tscn" id="5_wygnn"]
 
 [node name="Map" type="Node3D"]
@@ -26,18 +26,6 @@ transform = Transform3D(8.9407e-08, 1.48943e-09, -1, -1.13133e-08, 1, 1.48943e-0
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39, -5, 0)
 
 [node name="Grass" type="Node3D" parent="."]
-
-[node name="Grass5" parent="Grass" instance=ExtResource("3_0vtbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -5, -20)
-
-[node name="Grass6" parent="Grass" instance=ExtResource("3_0vtbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -5, -20)
-
-[node name="Grass8" parent="Grass" instance=ExtResource("3_0vtbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -5, 20)
-
-[node name="Grass9" parent="Grass" instance=ExtResource("3_0vtbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -5, 20)
 
 [node name="ramp" type="Node3D" parent="."]
 
@@ -208,3 +196,15 @@ transform = Transform3D(3.0598e-07, 0, -1, 0, 1, 0, 1, 0, 3.0598e-07, 81, -10, 2
 
 [node name="Rampe9" parent="." instance=ExtResource("2_vu13c")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 41, -12, 80)
+
+[node name="Grass2" parent="." instance=ExtResource("5_t0yt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -5, 20)
+
+[node name="Grass3" parent="." instance=ExtResource("5_t0yt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -5, 20)
+
+[node name="Grass4" parent="." instance=ExtResource("5_t0yt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -5, -20)
+
+[node name="Grass5" parent="." instance=ExtResource("5_t0yt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -5, -20)
