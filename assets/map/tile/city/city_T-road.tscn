@@ -17,7 +17,7 @@ uv1_triplanar_sharpness = 0.450626
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_andro"]
 margin = 0.0
-size = Vector3(20, 1, 20)
+size = Vector3(20, 5, 20)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tdnxl"]
 size = Vector2(20, 20)
@@ -50,6 +50,7 @@ mesh = SubResource("BoxMesh_ydiq8")
 surface_material_override/0 = SubResource("StandardMaterial3D_qders")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EarthBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 shape = SubResource("BoxShape3D_andro")
 
 [node name="Grass" type="MeshInstance3D" parent="."]
