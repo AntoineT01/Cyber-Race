@@ -36,9 +36,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 
 [node name="Rampe4" parent="." instance=ExtResource("1_raidm")]
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -40, 5, 8)
 
-[node name="CityCross-road" parent="." instance=ExtResource("4_ccnp0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -3, -20)
-
 [node name="Bridge" parent="." instance=ExtResource("5_f771f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 7, 40)
 
@@ -68,6 +65,3 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60, 2
 
 [node name="Grass" parent="." instance=ExtResource("7_7bbt0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 2, 20)
-
-[node name="CityCross-road4" parent="." instance=ExtResource("4_ccnp0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -3, -20)

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0bbapyptotjg"]
+[gd_scene load_steps=5 format=3 uid="uid://d0bbapyptotjg"]
 
 [ext_resource type="PackedScene" uid="uid://cyic2725cwu1o" path="res://assets/map/tile-group/pyramide.tscn" id="1_viyk1"]
 [ext_resource type="PackedScene" uid="uid://vs2b43kt071p" path="res://assets/map/tile/city/bridge.tscn" id="2_cadpd"]
+[ext_resource type="PackedScene" uid="uid://bhlkslgbhkjun" path="res://assets/map/objet/wall.tscn" id="3_5i16w"]
+[ext_resource type="PackedScene" uid="uid://d51cku43w2co" path="res://assets/map/tile-group/ground.tscn" id="3_6adua"]
 
 [node name="Map3" type="Node3D"]
 
@@ -28,3 +30,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 7, 59)
 
 [node name="pyramide4" parent="." instance=ExtResource("1_viyk1")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 83, 0, 139)
+
+[node name="Node3D" parent="." instance=ExtResource("3_6adua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -3.5, 59)
+
+[node name="wall" parent="." instance=ExtResource("3_5i16w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -3, -51.5)
+
+[node name="wall2" parent="." instance=ExtResource("3_5i16w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -3, 169.5)
+
+[node name="wall3" parent="." instance=ExtResource("3_5i16w")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -87.5, -3, 59)
+
+[node name="wall4" parent="." instance=ExtResource("3_5i16w")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 133.5, -3, 59)
+
+[node name="wall5" parent="." instance=ExtResource("3_5i16w")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -87.6, -3, 57.4)

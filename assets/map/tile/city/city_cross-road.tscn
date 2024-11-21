@@ -1,12 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://dq2j3uf6kmbrr"]
+[gd_scene load_steps=11 format=3 uid="uid://dq2j3uf6kmbrr"]
 
+[ext_resource type="Texture2D" uid="uid://ce8xl3r60p48v" path="res://assets/texture/grass/albedo.png" id="1_8att8"]
 [ext_resource type="PackedScene" uid="uid://dluh504876b1" path="res://assets/map/objet/little_line_angle.tscn" id="1_g5uxb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nxjs2"]
-size = Vector3(20, 1, 20)
+size = Vector3(20, 5, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iv8nu"]
-albedo_color = Color(0.4, 0.2, 0, 1)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8f23e"]
+load_path = "res://.godot/imported/albedo.png-65419aa27d4a071678348ba99d0bc58e.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1xww"]
+albedo_texture = SubResource("CompressedTexture2D_8f23e")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.450626
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wd8hk"]
 margin = 0.0
@@ -15,8 +22,11 @@ size = Vector3(20, 1, 20)
 [sub_resource type="PlaneMesh" id="PlaneMesh_jcvt3"]
 size = Vector2(20, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkshn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_liem4"]
 albedo_color = Color(0.1, 0.5, 0.1, 1)
+albedo_texture = ExtResource("1_8att8")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cuq5j"]
 size = Vector2(18, 16)
@@ -30,8 +40,9 @@ albedo_color = Color(0.2, 0.2, 0.2, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="EarthBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 mesh = SubResource("BoxMesh_nxjs2")
-surface_material_override/0 = SubResource("StandardMaterial3D_iv8nu")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1xww")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EarthBase"]
 shape = SubResource("BoxShape3D_wd8hk")
@@ -39,7 +50,7 @@ shape = SubResource("BoxShape3D_wd8hk")
 [node name="Grass" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 mesh = SubResource("PlaneMesh_jcvt3")
-surface_material_override/0 = SubResource("StandardMaterial3D_vkshn")
+surface_material_override/0 = SubResource("StandardMaterial3D_liem4")
 
 [node name="Road" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)

@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://hfy4hgenjycf"]
+[gd_scene load_steps=7 format=3 uid="uid://hfy4hgenjycf"]
+
+[ext_resource type="Texture2D" uid="uid://ce8xl3r60p48v" path="res://assets/texture/grass/albedo.png" id="1_vbh1s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jbm01"]
 size = Vector3(20, 1, 20)
@@ -14,6 +16,9 @@ size = Vector2(20, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cedh"]
 albedo_color = Color(0.1, 0.5, 0.1, 1)
+albedo_texture = ExtResource("1_vbh1s")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
 
 [node name="Grass" type="Node3D"]
 metadata/_edit_group_ = true

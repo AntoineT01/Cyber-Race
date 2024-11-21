@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d51cku43w2co"]
+
+[ext_resource type="Texture2D" uid="uid://cb8ghlcqeflq3" path="res://assets/texture/pavage sol dalle carré/albedo.png" id="1_a8la3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2pagu"]
+size = Vector3(220, 1, 220)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptghy"]
+albedo_texture = ExtResource("1_a8la3")
+uv1_scale = Vector3(0.05, 0.05, 0.05)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_us46v"]
+size = Vector3(220, 1, 220)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_2pagu")
+surface_material_override/0 = SubResource("StandardMaterial3D_ptghy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_us46v")

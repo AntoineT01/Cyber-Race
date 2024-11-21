@@ -1,10 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhlkslgbhkjun"]
+[gd_scene load_steps=5 format=3 uid="uid://bhlkslgbhkjun"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yg6v8"]
-size = Vector3(20, 5, 1)
+size = Vector3(222, 5, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8f23e"]
+load_path = "res://.godot/imported/albedo.png-65419aa27d4a071678348ba99d0bc58e.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp67b"]
+albedo_texture = SubResource("CompressedTexture2D_8f23e")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.450626
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m66ud"]
+size = Vector3(222, 5, 1)
 
 [node name="wall" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 mesh = SubResource("BoxMesh_yg6v8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_yp67b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_m66ud")
