@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6jsyexb5fyy7"]
+[gd_scene load_steps=11 format=3 uid="uid://b6jsyexb5fyy7"]
 
 [ext_resource type="Texture2D" uid="uid://ca1siudvkjdkf" path="res://assets/autumn_field_puresky_4k.exr" id="1_uuhg5"]
 [ext_resource type="PackedScene" uid="uid://3f713efdenwi" path="res://Interface/pause_menu.tscn" id="2_gtb8k"]
 [ext_resource type="Script" path="res://scripts/camera_follow.gd" id="3_4rtuw"]
-[ext_resource type="PackedScene" uid="uid://c8tp7bv5t4y7i" path="res://Interface/progress_bars.tscn" id="4_jcmq2"]
+[ext_resource type="PackedScene" path="res://Interface/progress_bars.tscn" id="4_jcmq2"]
 [ext_resource type="PackedScene" uid="uid://gvkfk88mkw1x" path="res://Interface/score_manager.tscn" id="5_275ju"]
 [ext_resource type="PackedScene" uid="uid://c04gca6dj15ui" path="res://Interface/starting_scene_timer.tscn" id="6_l7uq7"]
+[ext_resource type="PackedScene" uid="uid://chmx6ph4f1ob0" path="res://music_course_1.tscn" id="7_vf7a4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_75di2"]
 panorama = ExtResource("1_uuhg5")
@@ -70,3 +71,5 @@ target_name = "Voiture2"
 [node name="ScoresManager" parent="." instance=ExtResource("5_275ju")]
 
 [node name="StartingSceneTimer" parent="." instance=ExtResource("6_l7uq7")]
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("7_vf7a4")]
