@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c7ttf85vfj4cj" path="res://assets/voiture/voiture.tscn" id="3_iscqj"]
 [ext_resource type="PackedScene" uid="uid://ds05tvwkfuwrh" path="res://assets/voiture/cybertruck.tscn" id="4_cnwn1"]
 [ext_resource type="Script" path="res://scripts/race_manager.gd" id="5_11rf2"]
-[ext_resource type="PackedScene" uid="uid://0ts7641nogso" path="res://assets/map/imfastboi.tscn" id="6_6kdsc"]
+[ext_resource type="PackedScene" path="res://assets/map/imfastboi.tscn" id="6_6kdsc"]
 
 [node name="Race" type="Node3D"]
 script = ExtResource("1_wx5ns")

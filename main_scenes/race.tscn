@@ -11,7 +11,6 @@
 script = ExtResource("1_d22vc")
 
 [node name="Utilitaries" parent="." instance=ExtResource("2_dxe6c")]
-restart_scene_path = "res://main_scenes/race.tscn"
 
 [node name="Voiture1" parent="." groups=["cars"] instance=ExtResource("4_km4b7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.3, 1.5)

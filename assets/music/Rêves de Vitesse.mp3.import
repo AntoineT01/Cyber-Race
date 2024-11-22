@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmqy36016vrl2"
+path="res://.godot/imported/Rêves de Vitesse.mp3-e30b4ddf1ed50142405c905b5209d6e5.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Rêves de Vitesse.mp3"
+dest_files=["res://.godot/imported/Rêves de Vitesse.mp3-e30b4ddf1ed50142405c905b5209d6e5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
