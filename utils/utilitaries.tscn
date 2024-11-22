@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6jsyexb5fyy7"]
+[gd_scene load_steps=14 format=3 uid="uid://b6jsyexb5fyy7"]
 
 [ext_resource type="Script" path="res://utils/utilitaries.gd" id="1_gi72l"]
 [ext_resource type="Texture2D" uid="uid://ca1siudvkjdkf" path="res://assets/autumn_field_puresky_4k.exr" id="1_uuhg5"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c04gca6dj15ui" path="res://Interface/starting_scene_timer.tscn" id="6_l7uq7"]
 [ext_resource type="PackedScene" uid="uid://chmx6ph4f1ob0" path="res://music_course_1.tscn" id="7_vf7a4"]
 [ext_resource type="AudioStream" uid="uid://dmqy36016vrl2" path="res://assets/music/Rêves de Vitesse.mp3" id="9_p3m4a"]
+[ext_resource type="AudioStream" uid="uid://ckdktfub6h2kc" path="res://assets/music/start-music.mp3" id="10_uqtp2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_75di2"]
 panorama = ExtResource("1_uuhg5")
@@ -77,3 +78,6 @@ target_name = "Voiture2"
 
 [node name="BackgroundMusic" parent="." instance=ExtResource("7_vf7a4")]
 stream = ExtResource("9_p3m4a")
+
+[node name="start_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_uqtp2")
