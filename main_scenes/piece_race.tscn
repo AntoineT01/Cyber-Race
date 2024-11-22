@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6hcauhmhu5ju"]
+[gd_scene load_steps=6 format=3 uid="uid://3axqlrdxwm2m"]
 
 [ext_resource type="Script" path="res://main_scenes/piece_race.gd" id="1_c4xoq"]
 [ext_resource type="PackedScene" uid="uid://b6jsyexb5fyy7" path="res://utils/utilitaries.tscn" id="2_ad13e"]
@@ -10,6 +10,7 @@
 script = ExtResource("1_c4xoq")
 
 [node name="Utilitaries" parent="." instance=ExtResource("2_ad13e")]
+restart_scene_path = "res://main_scenes/piece_race.tscn"
 
 [node name="Voiture1" parent="." groups=["cars"] instance=ExtResource("4_7ialt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.3, 1.5)

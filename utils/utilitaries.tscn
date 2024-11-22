@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6jsyexb5fyy7"]
+[gd_scene load_steps=12 format=3 uid="uid://b6jsyexb5fyy7"]
 
+[ext_resource type="Script" path="res://utils/utilitaries.gd" id="1_gi72l"]
 [ext_resource type="Texture2D" uid="uid://ca1siudvkjdkf" path="res://assets/autumn_field_puresky_4k.exr" id="1_uuhg5"]
 [ext_resource type="PackedScene" uid="uid://3f713efdenwi" path="res://Interface/pause_menu.tscn" id="2_gtb8k"]
 [ext_resource type="Script" path="res://scripts/camera_follow.gd" id="3_4rtuw"]
@@ -21,6 +22,7 @@ sky = SubResource("Sky_phefi")
 ambient_light_energy = 1.1
 
 [node name="Utilitaries" type="Node"]
+script = ExtResource("1_gi72l")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tc7wn")

@@ -11,6 +11,7 @@
 script = ExtResource("1_unawa")
 
 [node name="Utilitaries" parent="." instance=ExtResource("2_i28n0")]
+restart_scene_path = "res://main_scenes/race_city_horror.tscn"
 
 [node name="Voiture1" parent="." groups=["cars"] instance=ExtResource("3_fifs1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.3, 1.5)
